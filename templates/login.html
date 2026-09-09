@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Computer Education</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="auth-page">
+
+    <div class="auth-card">
+
+        <div class="auth-logo">
+            <div class="logo-icon">💻</div>
+            <h1>Computer Education</h1>
+            <p>Learn. Practice. Grow.</p>
+        </div>
+
+        <h2 class="auth-title">Welcome Back 👋</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages %}
+                <div class="alert {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST">
+
+            <div class="form-group">
+                <label>Email Address</label>
+
+                <div class="input-wrapper">
+                    <span>✉️</span>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+
+                <div class="input-wrapper">
+                    <span>🔒</span>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn">
+                Login →
+            </button>
+
+        </form>
+
+        <div class="auth-footer">
+
+            <p>
+                Don't have an account?
+                <a href="{{ url_for('register') }}">Create Account</a>
+            </p>
+
+            <p style="margin-top:12px;">
+                <a href="{{ url_for('index') }}">← Back to Home</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer class="site-footer">
+    © 2026 Computer Education. All Rights Reserved.
+</footer>
+
+<style>
+.site-footer {
+    text-align: center;
+    padding: 18px 15px;
+    margin-top: 40px;
+    background: rgba(15, 23, 42, 0.92);
+    color: #e2e8f0;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+</style>
+</body>
+</html>
+

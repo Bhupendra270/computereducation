@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 24: APIs with Python</title>
+
+<style>
+body {
+    margin:0;
+    background:#f1f5f9;
+    color:#1e293b;
+    font-family:Arial, "Noto Sans Devanagari", sans-serif;
+    line-height:1.8;
+}
+
+.container {
+    max-width:1100px;
+    margin:30px auto;
+    background:white;
+    padding:45px;
+    border-radius:14px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+h1 {
+    color:#1d4ed8;
+    border-bottom:4px solid #2563eb;
+    padding-bottom:15px;
+}
+
+h2 {
+    color:#1e40af;
+    margin-top:40px;
+}
+
+h3 {
+    color:#334155;
+}
+
+pre {
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:20px;
+    border-radius:10px;
+    overflow-x:auto;
+    font-size:15px;
+}
+
+.note {
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    margin:25px 0;
+}
+
+.practice {
+    background:#f0fdf4;
+    border-left:5px solid #16a34a;
+    padding:18px;
+    margin:25px 0;
+}
+
+.warning {
+    background:#fff7ed;
+    border-left:5px solid #f97316;
+    padding:18px;
+    margin:25px 0;
+}
+
+table {
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+}
+
+th,td {
+    border:1px solid #cbd5e1;
+    padding:12px;
+    text-align:left;
+}
+
+th {
+    background:#dbeafe;
+}
+
+li {
+    margin:8px 0;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>Lesson 24: APIs with Python</h1>
+
+<div class="note">
+<strong>API concepts, HTTP requests, JSON responses और practical API clients</strong><br>
+Learning Rule:
+Theory पढ़ें → Code स्वयं type करें → Run करें →
+Output समझें → Code में बदलाव करें → Error समझें →
+Save करें → बिना notes देखे दोबारा practice करें।
+</div>
+
+<h2>Learning Objectives</h2>
+
+<p>
+इस lesson का उद्देश्य केवल definitions याद कराना नहीं है। आपको concept को
+समझकर उसका practical Python program बनाना, program run करना, output पढ़ना,
+errors पहचानना और code modify करना सीखना है।
+</p>
+
+
+<p>
+Python Programming सीखते समय केवल syntax याद करना पर्याप्त नहीं है। वास्तविक
+programming skill तब विकसित होती है जब learner किसी concept को समझकर उसे
+computer पर स्वयं लिखता है, run करता है, output observe करता है, error को
+समझता है और फिर उसी code में बदलाव करके अलग परिणाम प्राप्त करता है।
+</p>
+
+<p>
+हर lesson में theory और practical work को साथ लेकर चलें। पहले concept को अपने
+शब्दों में समझें, फिर example को स्वयं type करें। उसके बाद values, variable
+names या logic में छोटे बदलाव करें। इससे programming logic और debugging skill
+दोनों मजबूत होते हैं।
+</p>
+
+
+<h2>Topics Covered</h2>
+
+<ul>
+<li>API क्या है</li><li>Client और server</li><li>HTTP</li><li>GET request</li><li>POST request</li><li>Response</li><li>Status code</li><li>JSON response</li><li>requests library</li><li>Headers</li><li>Parameters</li><li>Error handling</li><li>API data processing</li>
+</ul>
+
+<h2>1. Detailed Concept Explanation</h2>
+
+<p>
+इस lesson के प्रत्येक topic को practical programming के दृष्टिकोण से समझें।
+किसी भी नए concept के लिए तीन प्रश्न पूछें:
+<strong>यह क्या है? इसका उपयोग क्यों होता है? इसे program में कैसे इस्तेमाल करेंगे?</strong>
+</p>
+
+<p>
+जब आपको answer मिल जाए तो computer पर एक छोटा example स्वयं बनाइए।
+केवल browser या notes में code पढ़ने से programming skill मजबूत नहीं होती।
+Typing, execution, debugging और modification वास्तविक practice का हिस्सा हैं।
+</p>
+
+<h2>2. Important Concepts</h2>
+
+<table>
+<tr>
+<th>Concept</th>
+<th>Practical Meaning</th>
+</tr>
+
+<tr>
+<td>Syntax</td>
+<td>Python program लिखने के rules</td>
+</tr>
+
+<tr>
+<td>Variable</td>
+<td>Data को reference देने का तरीका</td>
+</tr>
+
+<tr>
+<td>Function</td>
+<td>Reusable code block</td>
+</tr>
+
+<tr>
+<td>Data Structure</td>
+<td>Data को organize और manage करने का तरीका</td>
+</tr>
+
+<tr>
+<td>Exception</td>
+<td>Program execution के दौरान आने वाली समस्या</td>
+</tr>
+
+<tr>
+<td>Debugging</td>
+<td>Problem खोजकर code को सही करना</td>
+</tr>
+</table>
+
+<h2>3. Practical Code Examples</h2>
+
+
+        <h3>Example 1</h3>
+        <pre><code>import requests
+
+url = &quot;https://api.github.com&quot;
+
+response = requests.get(url)
+
+print(response.status_code)
+print(response.text[:200])</code></pre>
+
+        <div class="practice">
+        <strong>Hands-on Practice:</strong>
+        पहले इस code को स्वयं type करें। फिर कम से कम तीन बदलाव करें।
+        Variable names, values या statements बदलकर program को दोबारा run करें।
+        Output में क्या बदलाव आया, उसे लिखें।
+        </div>
+        
+        <h3>Example 2</h3>
+        <pre><code>import requests
+
+url = &quot;https://api.github.com/users/octocat&quot;
+
+response = requests.get(url)
+
+if response.status_code == 200:
+    data = response.json()
+    print(data[&quot;login&quot;])
+else:
+    print(&quot;Request failed&quot;)</code></pre>
+
+        <div class="practice">
+        <strong>Hands-on Practice:</strong>
+        पहले इस code को स्वयं type करें। फिर कम से कम तीन बदलाव करें।
+        Variable names, values या statements बदलकर program को दोबारा run करें।
+        Output में क्या बदलाव आया, उसे लिखें।
+        </div>
+        
+        <h3>Example 3</h3>
+        <pre><code>import requests
+
+params = {
+    &quot;q&quot;: &quot;python&quot;
+}
+
+response = requests.get(
+    &quot;https://api.github.com/search/repositories&quot;,
+    params=params
+)
+
+data = response.json()
+
+print(data[&quot;total_count&quot;])</code></pre>
+
+        <div class="practice">
+        <strong>Hands-on Practice:</strong>
+        पहले इस code को स्वयं type करें। फिर कम से कम तीन बदलाव करें।
+        Variable names, values या statements बदलकर program को दोबारा run करें।
+        Output में क्या बदलाव आया, उसे लिखें।
+        </div>
+        
+
+<div class="practice">
+<strong>Important Practice Rule:</strong><br>
+हर example को कम से कम दो बार लिखें। पहली बार notes देखकर और दूसरी बार
+बिना notes देखे। फिर code में अपनी values और logic डालकर तीसरी बार run करें।
+</div>
+
+<h2>4. Code Execution को समझना</h2>
+
+<p>
+Program run करते समय Python statements को execute करता है। इसलिए code को
+line-by-line पढ़ने की आदत डालें। देखें कि कौन-सा data create हो रहा है,
+कौन-सा function call हो रहा है, कौन-सा operation हो रहा है और final output
+कैसे बन रहा है।
+</p>
+
+<p>
+अगर output गलत है तो पूरा program random तरीके से बदलने की बजाय पहले
+problem वाली line खोजें। Variable values print करें, data types check करें,
+और program को छोटे हिस्सों में test करें।
+</p>
+
+<h2>5. Common Mistakes</h2>
+
+<ul>
+<li>Code को समझे बिना copy-paste करना।</li>
+<li>Variable या function name की spelling बदल देना।</li>
+<li>Uppercase और lowercase को एक जैसा समझना।</li>
+<li>Quotation marks, brackets या colon भूल जाना।</li>
+<li>Indentation गलत करना।</li>
+<li>Error message को पढ़े बिना code बदलना।</li>
+<li>Program save करना भूल जाना।</li>
+<li>Practice के बजाय केवल theory पढ़ना।</li>
+</ul>
+
+<div class="warning">
+<strong>Remember:</strong>
+Error programming learning का normal हिस्सा है। Error आने पर घबराएँ नहीं।
+Traceback या error message पढ़ें, problematic line identify करें और फिर
+छोटा correction करके program दोबारा run करें।
+</div>
+
+<h2>6. Practical Exercise 1</h2>
+
+<p>
+एक नई Python file बनाइए और इस lesson के मुख्य concept पर आधारित अपना program
+लिखिए। Program में कम से कम पाँच meaningful statements रखें। Program run
+करें और output को ध्यान से देखें।
+</p>
+
+<h2>7. Practical Exercise 2</h2>
+
+<p>
+अब अपने program में कम से कम तीन बदलाव करें। कोई value बदलें, नया variable
+जोड़ें, output format बदलें या अतिरिक्त condition/operation जोड़ें।
+फिर program को दोबारा run करें और दोनों outputs compare करें।
+</p>
+
+<h2>8. Debugging Exercise</h2>
+
+<p>
+अपने program में जानबूझकर एक छोटी mistake करें। Program run करें और error
+message पढ़ें। Error की line identify करें और उसे ठीक करें। इसके बाद program
+फिर से run करके verify करें कि समस्या समाप्त हो गई है।
+</p>
+
+<h2>9. Real-World Application</h2>
+
+<p>
+इस lesson का concept आगे चलकर real-world Python applications में उपयोग होगा।
+Python का उपयोग automation, web development, APIs, databases, data processing,
+testing, scripting और artificial intelligence जैसे क्षेत्रों में किया जाता है।
+इसलिए basic और intermediate concepts को practical तरीके से मजबूत करना बहुत
+महत्वपूर्ण है।
+</p>
+
+<h2>10. Mini Project</h2>
+
+<p>
+<strong>एक API Client Program बनाइए जो किसी public API से JSON data लेकर उसे readable format में display करे और request errors handle करे।</strong>
+</p>
+
+<div class="practice">
+<strong>Project Workflow</strong>
+
+<ol>
+<li>Problem को ध्यान से समझें।</li>
+<li>Requirements की list बनाएं।</li>
+<li>Problem को छोटे steps में divide करें।</li>
+<li>हर step के लिए Python code लिखें।</li>
+<li>हर छोटे part को अलग से test करें।</li>
+<li>सभी parts को combine करें।</li>
+<li>Errors fix करें।</li>
+<li>Final program run करें।</li>
+<li>File save करें।</li>
+<li>बिना notes देखे project दोबारा बनाने का प्रयास करें।</li>
+</ol>
+</div>
+
+<h2>11. Practice Questions</h2>
+
+<ol>
+<li>इस lesson का मुख्य concept अपने शब्दों में समझाइए।</li>
+<li>यह concept Python में क्यों उपयोगी है?</li>
+<li>एक छोटा program स्वयं लिखिए।</li>
+<li>Program में तीन modifications कीजिए।</li>
+<li>Output में हुए बदलाव को explain कीजिए।</li>
+<li>एक common error जानबूझकर create करके fix कीजिए।</li>
+<li>अपने program में एक अतिरिक्त feature जोड़िए।</li>
+<li>Program को बिना notes देखे दोबारा लिखिए।</li>
+<li>अपने solution को किसी दूसरे learner को explain कीजिए।</li>
+<li>इस concept का real-world use बताइए।</li>
+</ol>
+
+<h2>12. Self-Test</h2>
+
+<p>
+क्या आप इस lesson के मुख्य concept को बिना notes देखे समझा सकते हैं?
+क्या आप कम से कम दो छोटे programs स्वयं बना सकते हैं? क्या आप अपने code
+में बदलाव करके नया output प्राप्त कर सकते हैं? क्या आप basic error को
+पहचानकर ठीक कर सकते हैं?
+</p>
+
+<p>
+यदि इन सभी questions का answer हाँ है, तो आप अगले lesson पर जा सकते हैं।
+यदि किसी हिस्से में difficulty है तो उसी topic का छोटा program दोबारा बनाइए।
+</p>
+
+<h2>13. Revision</h2>
+
+<p>
+Lesson पूरा होने के बाद topics की list दोबारा देखें। प्रत्येक topic के सामने
+अपने शब्दों में उसका meaning लिखें और कम से कम एक practical example याद से
+बनाने का प्रयास करें। जिस concept में confidence कम हो उसे computer पर
+दोबारा practice करें।
+</p>
+
+<h2>14. Completion Checklist</h2>
+
+<ul>
+<li>☐ सभी topics पढ़े</li>
+<li>☐ Concepts अपने शब्दों में समझे</li>
+<li>☐ Examples स्वयं type किए</li>
+<li>☐ Programs run किए</li>
+<li>☐ Output समझा</li>
+<li>☐ Code में बदलाव किए</li>
+<li>☐ Debugging exercise पूरी की</li>
+<li>☐ Common errors समझे</li>
+<li>☐ Mini project बनाया</li>
+<li>☐ Practice questions हल किए</li>
+<li>☐ Self-test पूरा किया</li>
+<li>☐ Files सही तरीके से save कीं</li>
+<li>☐ बिना notes देखे program दोबारा लिखा</li>
+</ul>
+
+<hr>
+
+<div class="note">
+<strong>Final Learning Rule:</strong><br>
+Theory पढ़ें → Computer पर Code लिखें → Run करें →
+Output समझें → Error पढ़ें → Debug करें → Modify करें →
+Save करें → फिर बिना notes देखे पूरा task दोबारा करें।
+</div>
+
+</div>
+</body>
+</html>

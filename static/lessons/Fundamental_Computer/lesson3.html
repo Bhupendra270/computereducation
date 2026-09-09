@@ -1,0 +1,725 @@
+﻿<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fundamental Computer - Lesson 3</title>
+
+<style>
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#f4f7fb;
+    color:#222;
+    line-height:1.8;
+    margin:0;
+}
+.container{
+    max-width:1000px;
+    margin:30px auto;
+    background:#fff;
+    padding:35px;
+    border-radius:16px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+h1{color:#123d78}
+h2{color:#1769aa;margin-top:35px}
+h3{color:#333;margin-top:25px}
+.note{
+    background:#eef7ff;
+    border-left:5px solid #1976d2;
+    padding:18px;
+    margin:20px 0;
+}
+.example{
+    background:#f1fff4;
+    border-left:5px solid #2e9d50;
+    padding:18px;
+    margin:20px 0;
+}
+.warning{
+    background:#fff5f5;
+    border-left:5px solid #d32f2f;
+    padding:18px;
+    margin:20px 0;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+}
+th,td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:left;
+}
+th{
+    background:#eaf1fb;
+}
+code{
+    background:#f1f1f1;
+    padding:2px 6px;
+    border-radius:4px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>💿 Lesson 3: Computer Software</h1>
+
+<div class="note">
+<strong>Course:</strong> Fundamental Computer<br>
+<strong>Lesson:</strong> Lesson 3<br>
+<strong>Topic:</strong> Computer Software / कंप्यूटर सॉफ्टवेयर<br>
+<strong>Level:</strong> Beginner
+</div>
+
+<h2>1. Software क्या है? / What is Software?</h2>
+
+<p>
+Software उन programs, instructions और related data का collection है जो
+computer hardware को बताते हैं कि कौन सा काम कैसे करना है। Hardware
+computer के physical components होते हैं, जबकि software logical instructions
+और programs प्रदान करता है।
+</p>
+
+<p>
+Computer केवल hardware की सहायता से उपयोगी काम नहीं कर सकता। Hardware को
+काम करने के लिए instructions की आवश्यकता होती है। यही instructions
+software के माध्यम से उपलब्ध होती हैं।
+</p>
+
+<div class="example">
+<strong>सरल उदाहरण:</strong><br>
+Keyboard hardware है, लेकिन keyboard से text input लेने और उसे application
+में process करने के लिए operating system तथा application software की
+आवश्यकता होती है।
+</div>
+
+<h2>2. Hardware और Software का संबंध</h2>
+
+<p>
+Hardware और software एक-दूसरे पर निर्भर होते हैं। Hardware physical
+operations perform करता है और software उसे instructions देता है।
+Operating system hardware resources को manage करता है और applications
+user के लिए specific tasks उपलब्ध कराती हैं।
+</p>
+
+<table>
+<tr>
+<th>Hardware</th>
+<th>Software</th>
+</tr>
+<tr>
+<td>Physical components</td>
+<td>Programs और instructions</td>
+</tr>
+<tr>
+<td>Keyboard, CPU, RAM, SSD</td>
+<td>Windows, browser, media player</td>
+</tr>
+<tr>
+<td>देखा और छुआ जा सकता है</td>
+<td>Physical object की तरह नहीं छुआ जा सकता</td>
+</tr>
+<tr>
+<td>Instructions को execute करने में सहायता करता है</td>
+<td>Hardware को instructions प्रदान करता है</td>
+</tr>
+</table>
+
+<h2>3. Software की मुख्य Categories</h2>
+
+<p>
+Computer software को उसके purpose और role के आधार पर कई categories में
+समझा जा सकता है। Beginner के लिए मुख्य categories हैं:
+</p>
+
+<ul>
+<li>System Software</li>
+<li>Application Software</li>
+<li>Utility Software</li>
+<li>Programming Software</li>
+<li>Device Drivers</li>
+<li>Firmware</li>
+</ul>
+
+<h2>4. System Software / सिस्टम सॉफ्टवेयर</h2>
+
+<p>
+System software computer के basic operation और hardware resources को manage
+करने में सहायता करता है। यह user applications और hardware के बीच important
+layer प्रदान करता है।
+</p>
+
+<p>
+Operating system system software का सबसे महत्वपूर्ण उदाहरण है।
+</p>
+
+<h3>Examples</h3>
+
+<ul>
+<li>Windows</li>
+<li>Linux</li>
+<li>macOS</li>
+<li>Android</li>
+<li>iOS</li>
+</ul>
+
+<h2>5. Operating System क्या करता है?</h2>
+
+<p>
+Operating system को computer का मुख्य system software माना जाता है। यह
+hardware resources को manage करता है और applications को services प्रदान
+करता है।
+</p>
+
+<h3>Operating System के मुख्य कार्य</h3>
+
+<ul>
+<li>Process management</li>
+<li>Memory management</li>
+<li>File management</li>
+<li>Device management</li>
+<li>User interface प्रदान करना</li>
+<li>Security और access control में सहायता</li>
+<li>Application execution support करना</li>
+<li>Network और system resources manage करना</li>
+</ul>
+
+<div class="example">
+<strong>उदाहरण:</strong><br>
+जब आप कोई application खोलते हैं, operating system memory allocate करने,
+required files access करने और hardware resources उपलब्ध कराने में सहायता
+करता है।
+</div>
+
+<h2>6. Application Software / एप्लिकेशन सॉफ्टवेयर</h2>
+
+<p>
+Application software वह software है जिसे user किसी specific task को पूरा
+करने के लिए उपयोग करता है।
+</p>
+
+<h3>Common Examples</h3>
+
+<ul>
+<li>Word processors</li>
+<li>Spreadsheet applications</li>
+<li>Presentation software</li>
+<li>Web browsers</li>
+<li>Media players</li>
+<li>Image editing software</li>
+<li>Accounting applications</li>
+<li>Educational applications</li>
+</ul>
+
+<h2>7. Word Processing Software</h2>
+
+<p>
+Word processing software का उपयोग documents बनाने, edit करने, format करने,
+save करने और print करने के लिए किया जाता है।
+</p>
+
+<p>
+इसमें text formatting, headings, tables, images, page layout और document
+printing जैसी सुविधाएँ हो सकती हैं।
+</p>
+
+<div class="example">
+<strong>Practical Example:</strong><br>
+School assignment बनाने के लिए आप word processor में text type करते हैं,
+heading बनाते हैं, image insert करते हैं, document save करते हैं और अंत में
+print या PDF के रूप में export कर सकते हैं।
+</div>
+
+<h2>8. Spreadsheet Software</h2>
+
+<p>
+Spreadsheet software का उपयोग numerical data, calculations, tables,
+analysis और charts के लिए किया जाता है।
+</p>
+
+<p>
+Spreadsheet में rows और columns के intersection को cell कहा जाता है।
+Cells में numbers, text और formulas रखे जा सकते हैं।
+</p>
+
+<h3>Examples</h3>
+
+<ul>
+<li>Microsoft Excel</li>
+<li>LibreOffice Calc</li>
+<li>Google Sheets</li>
+</ul>
+
+<h2>9. Presentation Software</h2>
+
+<p>
+Presentation software का उपयोग slides बनाने और information को visual
+format में प्रस्तुत करने के लिए किया जाता है।
+</p>
+
+<p>
+Slides में text, images, charts, tables, audio और video जैसे elements
+शामिल किए जा सकते हैं।
+</p>
+
+<h3>Examples</h3>
+
+<ul>
+<li>Microsoft PowerPoint</li>
+<li>LibreOffice Impress</li>
+<li>Google Slides</li>
+</ul>
+
+<h2>10. Web Browser / वेब ब्राउज़र</h2>
+
+<p>
+Web browser ऐसा application software है जिसका उपयोग websites और web
+applications को access करने के लिए किया जाता है।
+</p>
+
+<h3>Examples</h3>
+
+<ul>
+<li>Google Chrome</li>
+<li>Microsoft Edge</li>
+<li>Mozilla Firefox</li>
+<li>Safari</li>
+</ul>
+
+<p>
+Browser web server से information प्राप्त करता है और उसे user के लिए
+screen पर प्रस्तुत करता है।
+</p>
+
+<h2>11. Utility Software</h2>
+
+<p>
+Utility software computer की maintenance, security, file management या
+system optimization जैसे tasks में सहायता करता है।
+</p>
+
+<h3>Examples</h3>
+
+<ul>
+<li>Backup utilities</li>
+<li>Disk management tools</li>
+<li>File compression utilities</li>
+<li>Security tools</li>
+<li>System monitoring tools</li>
+</ul>
+
+<div class="warning">
+<strong>ध्यान दें:</strong><br>
+हर "cleaner" या "optimizer" software आवश्यक नहीं होता। Unknown utilities
+install करने से पहले source और permissions को ध्यान से check करना चाहिए।
+</div>
+
+<h2>12. Device Drivers / डिवाइस ड्राइवर</h2>
+
+<p>
+Device driver ऐसा software component है जो operating system को किसी
+hardware device के साथ communicate करने में सहायता करता है।
+</p>
+
+<p>
+Printer, graphics hardware, audio devices और network adapters जैसे hardware
+को operating system के साथ काम करने के लिए appropriate drivers की आवश्यकता
+हो सकती है।
+</p>
+
+<div class="example">
+<strong>उदाहरण:</strong><br>
+यदि computer में printer connect किया गया है, तो operating system को printer
+के साथ सही communication के लिए compatible driver की आवश्यकता हो सकती है।
+</div>
+
+<h2>13. Firmware / फर्मवेयर</h2>
+
+<p>
+Firmware ऐसा low-level software होता है जो hardware device के अंदर या
+उससे closely associated memory में stored हो सकता है और device के basic
+operations को control करने में सहायता करता है।
+</p>
+
+<p>
+Routers, printers, smartphones, storage devices और अन्य electronic systems
+में firmware का उपयोग किया जा सकता है।
+</p>
+
+<h2>14. Programming Software</h2>
+
+<p>
+Programming software developers को programs और applications बनाने में
+सहायता करता है।
+</p>
+
+<h3>Examples</h3>
+
+<ul>
+<li>Code editors</li>
+<li>Integrated Development Environments (IDE)</li>
+<li>Compilers</li>
+<li>Interpreters</li>
+<li>Debugging tools</li>
+</ul>
+
+<p>
+Python, Java, C, C++, JavaScript और अन्य programming languages के साथ
+अलग-अलग development tools उपयोग किए जा सकते हैं।
+</p>
+
+<h2>15. Compiler और Interpreter</h2>
+
+<p>
+Programming languages को computer hardware द्वारा directly समझे जाने वाले
+machine-level instructions में translate करने के लिए different approaches
+का उपयोग किया जाता है।
+</p>
+
+<h3>Compiler</h3>
+
+<p>
+Compiler source code को target form में translate करने का काम करता है।
+कई compiled languages में program को run करने से पहले compilation process
+होती है।
+</p>
+
+<h3>Interpreter</h3>
+
+<p>
+Interpreter program instructions को execution के दौरान process कर सकता है।
+Different programming languages और implementations compilation तथा
+interpretation के अलग-अलग combinations का उपयोग कर सकती हैं।
+</p>
+
+<h2>16. Open Source और Proprietary Software</h2>
+
+<h3>Open Source Software</h3>
+
+<p>
+Open source software का source code एक defined license के अंतर्गत उपलब्ध
+हो सकता है, जिससे users और developers को license की conditions के अनुसार
+code को inspect, modify और distribute करने की अनुमति मिल सकती है।
+</p>
+
+<h3>Proprietary Software</h3>
+
+<p>
+Proprietary software का source code सामान्यतः owner या vendor के control
+में होता है और software का उपयोग license terms के अनुसार किया जाता है।
+</p>
+
+<table>
+<tr>
+<th>Open Source</th>
+<th>Proprietary</th>
+</tr>
+<tr>
+<td>Source code license के अनुसार available हो सकता है</td>
+<td>Source code सामान्यतः publicly available नहीं होता</td>
+</tr>
+<tr>
+<td>Modification license terms के अनुसार संभव हो सकती है</td>
+<td>Modification vendor restrictions के अधीन हो सकती है</td>
+</tr>
+<tr>
+<td>Examples: Linux, Firefox</td>
+<td>Examples: Windows, commercial applications</td>
+</tr>
+</table>
+
+<h2>17. Free Software और Freeware</h2>
+
+<p>
+"Free" शब्द software के context में अलग-अलग meanings रख सकता है। Freeware
+आमतौर पर ऐसा software होता है जिसे बिना direct purchase price के उपयोग
+किया जा सकता है, लेकिन उसके license restrictions हो सकते हैं।
+</p>
+
+<p>
+Free software एक अलग concept है जिसमें user freedoms और software license
+महत्वपूर्ण होते हैं। इसलिए "free of cost" और "freedom" को एक ही चीज नहीं
+समझना चाहिए।
+</p>
+
+<h2>18. Software Installation</h2>
+
+<p>
+Software installation का अर्थ किसी application या program को computer
+system में setup करना है ताकि वह उपयोग किया जा सके।
+</p>
+
+<h3>Basic Installation Steps</h3>
+
+<ol>
+<li>Software का trusted source identify करें।</li>
+<li>System requirements check करें।</li>
+<li>Installer download करें।</li>
+<li>Installer को run करें।</li>
+<li>License terms पढ़ें।</li>
+<li>Required installation options select करें।</li>
+<li>Installation complete होने दें।</li>
+<li>Application को launch करके test करें।</li>
+</ol>
+
+<div class="warning">
+<strong>Security Rule:</strong><br>
+Unknown websites से random software download न करें। Unwanted bundled
+applications और suspicious installers से सावधान रहें।
+</div>
+
+<h2>19. Software Update / अपडेट</h2>
+
+<p>
+Software updates bugs fix करने, security improve करने, compatibility
+maintain करने और नई features उपलब्ध कराने के लिए जारी किए जा सकते हैं।
+</p>
+
+<p>
+Important applications और operating system को supported और trusted update
+mechanism के माध्यम से updated रखना अच्छी practice है।
+</p>
+
+<h2>20. Software License</h2>
+
+<p>
+Software license उन terms और conditions को define करता है जिनके अंतर्गत
+software को install, use, copy, modify या distribute किया जा सकता है।
+</p>
+
+<p>
+हर software के license terms अलग हो सकते हैं। इसलिए software को उपयोग
+करने से पहले applicable license और usage restrictions को समझना चाहिए।
+</p>
+
+<h2>21. Software और Security</h2>
+
+<p>
+Software security computer safety का महत्वपूर्ण हिस्सा है। Malicious या
+compromised software computer और user data के लिए risk पैदा कर सकता है।
+</p>
+
+<ul>
+<li>Trusted sources से software install करें।</li>
+<li>Operating system को updated रखें।</li>
+<li>Unknown attachments से सावधान रहें।</li>
+<li>Suspicious links पर click न करें।</li>
+<li>Strong passwords का उपयोग करें।</li>
+<li>Important data का backup रखें।</li>
+<li>Application permissions को समझकर approve करें।</li>
+</ul>
+
+<h2>22. Malware / मालवेयर</h2>
+
+<p>
+Malware का अर्थ malicious software है। इसका उद्देश्य system को नुकसान
+पहुँचाना, information चोरी करना, unwanted activity करना या unauthorized
+access प्राप्त करना हो सकता है।
+</p>
+
+<h3>Common Malware Types</h3>
+
+<ul>
+<li>Virus</li>
+<li>Worm</li>
+<li>Trojan</li>
+<li>Ransomware</li>
+<li>Spyware</li>
+<li>Adware</li>
+</ul>
+
+<div class="warning">
+<strong>Important:</strong><br>
+Unknown files या cracked/pirated software install करना security risk
+बढ़ा सकता है। Software हमेशा trusted और legitimate source से प्राप्त करें।
+</div>
+
+<h2>23. Software Troubleshooting</h2>
+
+<h3>Application Open नहीं हो रही</h3>
+
+<ul>
+<li>Computer restart करके देखें।</li>
+<li>Application update available है या नहीं check करें।</li>
+<li>Required system resources check करें।</li>
+<li>Error message को ध्यान से पढ़ें।</li>
+<li>यदि आवश्यक हो तो application repair या reinstall करें।</li>
+</ul>
+
+<h3>Application बहुत Slow है</h3>
+
+<ul>
+<li>Background applications check करें।</li>
+<li>Available RAM और storage देखें।</li>
+<li>Application और operating system updates check करें।</li>
+<li>Unnecessary processes बंद करें।</li>
+</ul>
+
+<h3>Software Install नहीं हो रहा</h3>
+
+<ul>
+<li>Installer compatible है या नहीं check करें।</li>
+<li>Available storage check करें।</li>
+<li>Required permissions देखें।</li>
+<li>Official installation instructions follow करें।</li>
+</ul>
+
+<h2>24. Software और Storage</h2>
+
+<p>
+Software applications storage device पर files के रूप में stored हो सकती हैं।
+जब application run होती है, operating system आवश्यक files को storage से
+access करके working memory में load करने में सहायता करता है।
+</p>
+
+<div class="example">
+<strong>Flow Example:</strong><br>
+Storage → Operating System → RAM → CPU Processing → Output
+</div>
+
+<h2>25. Software और User Interface</h2>
+
+<p>
+User Interface या UI वह माध्यम है जिसके द्वारा user software के साथ
+interact करता है।
+</p>
+
+<h3>Graphical User Interface</h3>
+
+<p>
+GUI में windows, icons, menus, buttons और visual controls का उपयोग होता है।
+Modern desktop और mobile operating systems में GUI का व्यापक उपयोग होता है।
+</p>
+
+<h3>Command Line Interface</h3>
+
+<p>
+CLI में user commands के माध्यम से computer या software के साथ interact
+करता है। PowerShell, Command Prompt और Linux shell इसके examples हैं।
+</p>
+
+<h2>26. Practical Exercise</h2>
+
+<ol>
+<li>अपने computer में installed applications की list देखें।</li>
+<li>एक web browser खोलें।</li>
+<li>एक word processing application खोलें।</li>
+<li>एक छोटा document बनाएँ।</li>
+<li>Document को save करें।</li>
+<li>एक spreadsheet application खोलें।</li>
+<li>एक simple calculation करें।</li>
+<li>अपने operating system का version देखें।</li>
+<li>Available software updates check करें।</li>
+<li>किसी unknown application को बिना जांचे install न करें।</li>
+</ol>
+
+<h2>27. Observation Activity</h2>
+
+<p>
+अपने computer में कम से कम 10 software applications identify करें और
+उनका purpose लिखें।
+</p>
+
+<table>
+<tr>
+<th>Software</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td>Operating System</td>
+<td>Computer resources manage करना</td>
+</tr>
+<tr>
+<td>Web Browser</td>
+<td>Websites access करना</td>
+</tr>
+<tr>
+<td>Word Processor</td>
+<td>Documents बनाना</td>
+</tr>
+<tr>
+<td>Spreadsheet</td>
+<td>Data और calculations</td>
+</tr>
+<tr>
+<td>Media Player</td>
+<td>Audio/video चलाना</td>
+</tr>
+</table>
+
+<h2>28. Quick Revision / त्वरित पुनरावृत्ति</h2>
+
+<ul>
+<li>Software programs और instructions का collection है।</li>
+<li>Operating system system software का महत्वपूर्ण उदाहरण है।</li>
+<li>Application software specific user tasks में सहायता करता है।</li>
+<li>Utility software maintenance और system tasks में सहायता कर सकता है।</li>
+<li>Device drivers hardware और operating system के बीच communication में सहायता करते हैं।</li>
+<li>Firmware hardware के basic operations में सहायता कर सकता है।</li>
+<li>Programming tools software development में उपयोग होते हैं।</li>
+<li>Software updates security और functionality improve कर सकते हैं।</li>
+<li>Unknown software install करना security risk हो सकता है।</li>
+<li>Regular backup एक अच्छी computer habit है।</li>
+</ul>
+
+<h2>29. Self-Test Questions / अभ्यास प्रश्न</h2>
+
+<ol>
+<li>Software क्या है?</li>
+<li>Hardware और software में क्या अंतर है?</li>
+<li>System software क्या है?</li>
+<li>Application software क्या है?</li>
+<li>Operating system के पाँच कार्य लिखिए।</li>
+<li>तीन operating systems के नाम लिखिए।</li>
+<li>Utility software क्या है?</li>
+<li>Device driver क्या होता है?</li>
+<li>Firmware क्या है?</li>
+<li>Compiler और interpreter में क्या अंतर है?</li>
+<li>Open source software क्या है?</li>
+<li>Proprietary software क्या है?</li>
+<li>Software update क्यों जरूरी हो सकता है?</li>
+<li>Malware क्या है?</li>
+<li>Software installation के समय किन बातों का ध्यान रखना चाहिए?</li>
+</ol>
+
+<h2>30. Final Summary / अंतिम सारांश</h2>
+
+<p>
+इस lesson में हमने computer software को detail में समझा। Software computer
+hardware को instructions और functionality प्रदान करता है। System software
+computer resources को manage करता है, application software user के specific
+tasks में सहायता करता है और utility तथा security tools maintenance और
+protection में योगदान कर सकते हैं।
+</p>
+
+<p>
+Operating system computer system का महत्वपूर्ण software layer है। यह
+memory, processes, files और devices को manage करने के साथ applications को
+run करने के लिए आवश्यक services प्रदान करता है। Device drivers hardware
+और operating system के बीच communication में सहायता करते हैं।
+</p>
+
+<p>
+Software का उपयोग करते समय security भी महत्वपूर्ण है। Trusted sources से
+software install करना, updates रखना, suspicious files से बचना और important
+data का backup रखना अच्छे computer habits हैं।
+</p>
+
+<div class="note">
+<strong>Practice Rule:</strong><br>
+अपने computer में कम से कम 10 software applications पहचानें। प्रत्येक
+application का नाम, उसका purpose और वह system software है या application
+software—यह लिखें। फिर operating system की settings में जाकर installed
+applications और available updates को observe करें।
+</div>
+
+</div>
+
+</body>
+</html>

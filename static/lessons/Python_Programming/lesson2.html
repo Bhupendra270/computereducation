@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Python Installation and Development Environment</title>
+<style>
+body {
+    margin:0;
+    background:#f1f5f9;
+    color:#1e293b;
+    font-family:Arial, "Noto Sans Devanagari", sans-serif;
+    line-height:1.8;
+}
+.container {
+    max-width:1100px;
+    margin:30px auto;
+    background:white;
+    padding:45px;
+    border-radius:14px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+h1 {
+    color:#1d4ed8;
+    border-bottom:4px solid #2563eb;
+    padding-bottom:15px;
+}
+h2 {
+    color:#1e40af;
+    margin-top:40px;
+}
+h3 {
+    color:#334155;
+}
+pre {
+    background:#0f172a;
+    color:#e2e8f0;
+    padding:20px;
+    border-radius:10px;
+    overflow-x:auto;
+    font-size:15px;
+}
+.note {
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:18px;
+    margin:25px 0;
+}
+.practice {
+    background:#f0fdf4;
+    border-left:5px solid #16a34a;
+    padding:18px;
+    margin:25px 0;
+}
+.warning {
+    background:#fff7ed;
+    border-left:5px solid #f97316;
+    padding:18px;
+    margin:25px 0;
+}
+table {
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+}
+th,td {
+    border:1px solid #cbd5e1;
+    padding:12px;
+    text-align:left;
+}
+th {
+    background:#dbeafe;
+}
+li {
+    margin:8px 0;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>Lesson 2: Python Installation and Development Environment</h1>
+
+<div class="note">
+<strong>Python install करना, interpreter, VS Code और पहला .py file</strong><br>
+Learning Rule: Theory पढ़ें → Code स्वयं type करें → Run करें →
+Output समझें → Code में बदलाव करें → Save करें → बिना notes देखे दोबारा करें।
+</div>
+
+<h2>Learning Objectives</h2>
+<p>
+इस lesson का उद्देश्य केवल definitions याद कराना नहीं है। इसका उद्देश्य आपको
+Python को computer पर स्वयं लिखने, run करने, समझने और modify करने की आदत
+develop कराना है। Lesson पूरा करने के बाद आपको concept को अपने शब्दों में
+समझाने और उसका छोटा practical program बनाने में सक्षम होना चाहिए।
+</p>
+
+<h2>Topics Covered</h2>
+<ul>
+<li>Python installation</li><li>Python version check</li><li>Python interpreter</li><li>Command Prompt और PowerShell</li><li>VS Code का परिचय</li><li>Python extension</li><li>Python file बनाना</li><li>.py extension</li><li>Program run करना</li><li>Terminal का उपयोग</li><li>PATH की basic understanding</li><li>Common installation errors</li>
+</ul>
+
+<h2>1. Detailed Introduction</h2>
+<p>
+Python Programming सीखते समय शुरुआत में सबसे महत्वपूर्ण बात यह समझना है कि
+programming केवल code याद करने का नाम नहीं है। Programming एक ऐसी प्रक्रिया है
+जिसमें हम किसी समस्या को समझते हैं, उसे छोटे steps में divide करते हैं और फिर
+computer को उन steps को execute करने के लिए instructions देते हैं।
+</p>
+
+<p>
+Python को beginners के लिए लोकप्रिय बनाने का एक कारण इसकी readable syntax है।
+Python code सामान्य English-style structure के काफी करीब दिखाई देता है, इसलिए
+नए learner के लिए program को पढ़ना और समझना अपेक्षाकृत आसान होता है। लेकिन
+इसका अर्थ यह नहीं है कि Python में programming logic की आवश्यकता नहीं होती।
+एक अच्छे Python programmer को syntax के साथ-साथ variables, data, conditions,
+loops, functions, data structures और debugging की समझ भी विकसित करनी होती है।
+</p>
+
+<h2>2. Concept को Practical तरीके से समझना</h2>
+<p>
+हर concept सीखते समय तीन सवाल पूछें: यह क्या है? इसका उपयोग क्यों होता है?
+और इसे computer पर कैसे इस्तेमाल करेंगे? इन तीन सवालों के जवाब मिलने के बाद
+एक छोटा program स्वयं बनाइए।
+</p>
+
+<p>
+उदाहरण के लिए यदि आपने कोई नया function सीखा है, तो केवल उसकी definition
+पढ़कर आगे न बढ़ें। उसका syntax लिखें, अलग-अलग values के साथ प्रयोग करें और
+फिर जानबूझकर कोई छोटी गलती करके error message को देखें। Error से डरने के
+बजाय उसे programming सीखने का हिस्सा समझें।
+</p>
+
+<h2>3. Important Concepts</h2>
+<table>
+<tr><th>Concept</th><th>Practical Meaning</th></tr>
+<tr><td>Syntax</td><td>Python code लिखने के rules</td></tr>
+<tr><td>Variable</td><td>Data को reference देने का तरीका</td></tr>
+<tr><td>Function</td><td>Reusable code का block</td></tr>
+<tr><td>Data Type</td><td>Data किस प्रकार का है यह बताता है</td></tr>
+<tr><td>Operator</td><td>Values पर operation करने के लिए symbol/keyword</td></tr>
+<tr><td>Debugging</td><td>Program की errors खोजकर ठीक करना</td></tr>
+</table>
+
+<h2>4. Practical Code Examples</h2>
+
+        <h3>Example 1</h3>
+        <pre><code>python --version</code></pre>
+        <p>
+        इस example को केवल copy-paste करके न चलाएँ। पहले code को ध्यान से पढ़ें,
+        फिर स्वयं type करें और program run करके output देखें। इसके बाद कम से कम
+        दो values बदलकर दोबारा run करें। इस practice से आपको syntax और program
+        execution को समझने में मदद मिलेगी।
+        </p>
+        
+        <h3>Example 2</h3>
+        <pre><code>print(&quot;Python environment is ready!&quot;)</code></pre>
+        <p>
+        इस example को केवल copy-paste करके न चलाएँ। पहले code को ध्यान से पढ़ें,
+        फिर स्वयं type करें और program run करके output देखें। इसके बाद कम से कम
+        दो values बदलकर दोबारा run करें। इस practice से आपको syntax और program
+        execution को समझने में मदद मिलेगी।
+        </p>
+        
+        <h3>Example 3</h3>
+        <pre><code>name = &quot;Student&quot;
+print(&quot;Welcome&quot;, name)</code></pre>
+        <p>
+        इस example को केवल copy-paste करके न चलाएँ। पहले code को ध्यान से पढ़ें,
+        फिर स्वयं type करें और program run करके output देखें। इसके बाद कम से कम
+        दो values बदलकर दोबारा run करें। इस practice से आपको syntax और program
+        execution को समझने में मदद मिलेगी।
+        </p>
+        
+        <h3>Example 4</h3>
+        <pre><code>print(&quot;This program is running from a .py file.&quot;)</code></pre>
+        <p>
+        इस example को केवल copy-paste करके न चलाएँ। पहले code को ध्यान से पढ़ें,
+        फिर स्वयं type करें और program run करके output देखें। इसके बाद कम से कम
+        दो values बदलकर दोबारा run करें। इस practice से आपको syntax और program
+        execution को समझने में मदद मिलेगी।
+        </p>
+        
+
+<div class="practice">
+<strong>Hands-on Practice:</strong>
+ऊपर के प्रत्येक example को पहले स्वयं type करें। Copy-paste करने के बाद
+कम से कम तीन बदलाव करें। Variables के नाम बदलें, values बदलें और output
+observe करें। फिर file save करके बंद करें और बिना notes देखे example दोबारा
+लिखने का प्रयास करें।
+</div>
+
+<h2>5. Code को समझने की सही प्रक्रिया</h2>
+<p>
+जब कोई program आपके सामने हो तो सीधे output देखने के बजाय code को line-by-line
+समझें। सबसे पहले देखें कि कौन-सी line पहले execute होगी। फिर देखें कि data
+कहाँ store हो रहा है, कौन-सा operation हो रहा है और final result कहाँ से आया।
+यह habit आगे चलकर debugging और बड़े projects में बहुत उपयोगी होगी।
+</p>
+
+<p>
+यदि output आपकी expectation के अनुसार नहीं आता है, तो तुरंत पूरा program बदलने
+की बजाय छोटी-छोटी चीजें check करें। Variable value print करें, data type check
+करें और प्रत्येक step को अलग-अलग test करें।
+</p>
+
+<h2>6. Common Mistakes</h2>
+<ul>
+<li>Code को समझे बिना केवल copy-paste करना।</li>
+<li>Quotation marks, brackets या colon भूल जाना।</li>
+<li>Variable name में spelling बदल देना।</li>
+<li>Uppercase और lowercase को एक जैसा समझना।</li>
+<li>Error message को पढ़े बिना random changes करना।</li>
+<li>Program save किए बिना editor बंद कर देना।</li>
+<li>एक example को समझे बिना बहुत सारे नए topics पर चले जाना।</li>
+</ul>
+
+<div class="warning">
+<strong>Important:</strong>
+Error आना failure नहीं है। Programming सीखते समय errors normal हैं।
+Error message को ध्यान से पढ़ना और problem की line पहचानना programming skill
+का महत्वपूर्ण हिस्सा है।
+</div>
+
+<h2>7. Practical Exercise 1</h2>
+<p>
+एक नई Python file बनाइए। File का नाम इस lesson के topic के अनुसार रखें।
+Program में कम से कम पाँच अलग statements लिखें। Program run करें और output
+verify करें। अब एक statement में जानबूझकर छोटा बदलाव करें और देखें कि output
+कैसे बदलता है।
+</p>
+
+<h2>8. Practical Exercise 2</h2>
+<p>
+अब बिना ऊपर दिए example को देखकर एक नया program बनाइए। Program का उद्देश्य
+वही concept इस्तेमाल करना होना चाहिए लेकिन values और messages आपके अपने होने
+चाहिए। Program को save करें और फिर बंद करके दोबारा स्वयं लिखें।
+</p>
+
+<h2>9. Real-World Application</h2>
+<p>
+Python का उपयोग वास्तविक दुनिया में automation, data processing, web
+applications, testing, scripting, APIs, databases, artificial intelligence
+और अनेक प्रकार के software development में किया जाता है। इसलिए basic
+concepts को मजबूत करना बहुत महत्वपूर्ण है। आगे के advanced topics इन्हीं
+basic concepts पर आधारित होंगे।
+</p>
+
+<h2>10. Mini Project</h2>
+<p>
+<strong>एक Python Environment Test Program बनाइए जो Python version check करने के बाद एक welcome message, student name और course name display करे।</strong>
+</p>
+
+<div class="practice">
+Project को तीन चरणों में पूरा करें:
+<br>1. पहले problem को समझें।
+<br>2. फिर छोटे steps लिखें।
+<br>3. प्रत्येक step का Python code बनाकर test करें।
+<br>4. Final program run करें।
+<br>5. File save करें।
+<br>6. Program बंद करके बिना notes देखे दोबारा बनाने का प्रयास करें।
+</div>
+
+<h2>11. Practice Questions</h2>
+<ol>
+<li>इस lesson का मुख्य concept अपने शब्दों में समझाइए।</li>
+<li>यह concept Python programming में क्यों उपयोगी है?</li>
+<li>एक छोटा practical example स्वयं बनाइए।</li>
+<li>Example में तीन values बदलकर output observe कीजिए।</li>
+<li>एक common error जानबूझकर create करके उसे ठीक कीजिए।</li>
+<li>Program को बिना notes देखे दोबारा लिखिए।</li>
+<li>अपने बनाए program में एक अतिरिक्त feature जोड़िए।</li>
+<li>अपने program को किसी दूसरे learner को explain कीजिए।</li>
+</ol>
+
+<h2>12. Self-Test</h2>
+<p>
+यदि आप इस lesson का मुख्य concept बिना notes देखे explain कर सकते हैं,
+कम से कम दो programs स्वयं लिख सकते हैं, error message देखकर basic problem
+identify कर सकते हैं और mini project पूरा कर सकते हैं, तो आपका lesson
+successfully practiced माना जा सकता है।
+</p>
+
+<h2>13. Revision</h2>
+<p>
+अब पूरे lesson को एक बार जल्दी revise करें। Definitions को केवल याद करने के
+बजाय प्रत्येक concept के साथ एक practical example mentally connect करें।
+जिस concept पर confidence कम है, उसे computer पर दोबारा practice करें।
+</p>
+
+<h2>14. Completion Checklist</h2>
+<ul>
+<li>☐ सभी topics पढ़े</li>
+<li>☐ Examples स्वयं type किए</li>
+<li>☐ सभी programs run किए</li>
+<li>☐ Output समझा</li>
+<li>☐ Code में बदलाव करके test किया</li>
+<li>☐ Common errors practice किए</li>
+<li>☐ Practical exercises पूरे किए</li>
+<li>☐ Mini project बनाया</li>
+<li>☐ Practice questions हल किए</li>
+<li>☐ Self-test पूरा किया</li>
+<li>☐ Files सही तरीके से save कीं</li>
+<li>☐ बिना notes देखे एक program दोबारा लिखा</li>
+</ul>
+
+<hr>
+
+<div class="note">
+<strong>Final Learning Rule:</strong>
+Theory पढ़ें → Computer पर करके देखें → Example बनाएं → Run करें →
+Output समझें → Error को समझें → Save करें → फिर बिना notes देखे पूरा task करें।
+</div>
+
+</div>
+</body>
+</html>

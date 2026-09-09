@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Courses | Computer Education</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="dashboard-nav">
+
+    <div class="brand">
+        💻 Computer Education
+    </div>
+
+    <div class="nav-right">
+        <span>👋 Hello, {{ session.get('name') }}</span>
+
+        <a href="{{ url_for('dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+    </div>
+
+</nav>
+
+
+<main class="courses-container">
+
+    <section class="courses-header">
+
+        <div>
+            <p class="small-text">Learning Center</p>
+
+            <h1>Explore Our Courses 📚</h1>
+
+            <p>
+                Choose a course and start improving
+                your computer skills today.
+            </p>
+        </div>
+
+        <div class="courses-header-icon">
+            🎓
+        </div>
+
+    </section>
+
+
+    <section class="course-tools">
+
+        <div class="search-box">
+
+            <span>🔎</span>
+
+            <input
+                type="text"
+                id="courseSearch"
+                placeholder="Search courses..."
+                onkeyup="searchCourses()">
+
+        </div>
+
+
+        <div class="filter-buttons">
+
+            <button
+                class="filter-btn active"
+                onclick="filterCourses('all', this)">
+                All
+            </button>
+
+            <button
+                class="filter-btn"
+                onclick="filterCourses('Beginner', this)">
+                Beginner
+            </button>
+
+            <button
+                class="filter-btn"
+                onclick="filterCourses('Intermediate', this)">
+                Intermediate
+            </button>
+
+            <button
+                class="filter-btn"
+                onclick="filterCourses('Advanced', this)">
+                Advanced
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="courses-grid" id="coursesGrid">
+
+
+        {% for course in courses %}
+
+        <article
+            class="course-card"
+            data-level="{{ course.level }}"
+            data-title="{{ course.title|lower }}">
+
+            <div class="course-top">
+
+                <div class="course-large-icon
+                    {{ course.color }}-course">
+                    {{ course.icon }}
+                </div>
+
+                <span class="level-badge
+                    {{ course.level|lower }}">
+                    {{ course.level }}
+                </span>
+
+            </div>
+
+
+            <h2>
+                {{ course.title }}
+            </h2>
+
+
+            <p>
+                {{ course.description }}
+            </p>
+
+
+            <div class="course-meta">
+
+                <span>📖 Lessons</span>
+
+                <span>📝 Quiz</span>
+
+            </div>
+
+
+            <a
+                href="{{ url_for('course', course_id=course.id) }}"
+                class="course-btn">
+
+                Start Course →
+                
+            </a>
+
+        </article>
+
+        {% endfor %}
+
+
+        <div
+            id="noCourses"
+            class="no-courses"
+            style="display:none;">
+
+            <div>🔍</div>
+
+            <h2>No courses found</h2>
+
+            <p>
+                Try another search or category.
+            </p>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+<footer class="site-footer">
+    © 2026 Computer Education. All Rights Reserved.
+</footer>
+
+<style>
+.site-footer {
+    text-align: center;
+    padding: 18px 15px;
+    margin-top: 40px;
+    background: rgba(15, 23, 42, 0.92);
+    color: #e2e8f0;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+</style>
+</body>
+</html>
+

@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz Result | Computer Education</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="dashboard-nav result-nav">
+
+    <div class="brand">
+        💻 Computer Education
+    </div>
+
+    <div class="nav-right">
+        <a href="{{ url_for('dashboard') }}">🏠 Dashboard</a>
+        <a href="{{ url_for('courses') }}">📚 Courses</a>
+        <a href="{{ url_for('logout') }}">🚪 Logout</a>
+    </div>
+
+</nav>
+
+
+<main class="result-page">
+
+    <div class="result-card">
+
+        <div class="result-icon">
+            🎉
+        </div>
+
+        <p class="result-label">
+            QUIZ COMPLETED
+        </p>
+
+        <h1>
+            Great Job!
+        </h1>
+
+        <p class="result-subtitle">
+            Here is your quiz performance.
+        </p>
+
+
+        <div class="score-box">
+
+            <div class="score-number">
+                {{ result.score }}
+                <span>/ {{ result.total }}</span>
+            </div>
+
+            <div class="score-text">
+                Your Score
+            </div>
+
+        </div>
+
+
+        {% if result.total > 0 %}
+
+        <div class="percentage-box">
+
+            <div class="percentage-number">
+                {{ result.percentage }}%
+            </div>
+
+            <div class="percentage-text">
+                Overall Performance
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        <div class="result-actions">
+
+            <a href="{{ url_for('quiz', course_id=course_id) }}"
+               class="result-btn primary">
+                🔄 Try Again
+            </a>
+
+            <a href="{{ url_for('courses') }}"
+               class="result-btn secondary">
+                📚 Back to Courses
+            </a>
+
+            <a href="{{ url_for('dashboard') }}"
+               class="result-btn dashboard-btn">
+                🏠 Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer class="site-footer">
+    © 2026 Computer Education. All Rights Reserved.
+</footer>
+
+<style>
+.site-footer {
+    text-align: center;
+    padding: 18px 15px;
+    margin-top: 40px;
+    background: rgba(15, 23, 42, 0.92);
+    color: #e2e8f0;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+</style>
+</body>
+</html>
+

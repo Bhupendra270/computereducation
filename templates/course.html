@@ -1,0 +1,638 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ course.title }} | Computer Education</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        .course-detail-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .course-detail-header {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .course-detail-header h1 {
+            margin: 10px 0;
+            font-size: 32px;
+        }
+
+        .course-detail-header p {
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        .detail-big-icon {
+            font-size: 80px;
+        }
+
+        .detail-level {
+            background: rgba(255,255,255,.2);
+            padding: 7px 15px;
+            border-radius: 20px;
+        }
+
+        .course-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .info-box > span {
+            font-size: 32px;
+        }
+
+        .info-box strong {
+            display: block;
+            font-size: 22px;
+        }
+
+        .info-box small {
+            color: #666;
+        }
+
+        .lessons-section {
+            margin-top: 30px;
+        }
+
+        .small-text {
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .lessons-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        .lesson-card {
+            background: white;
+            border-radius: 15px;
+            padding: 22px;
+            box-shadow: 0 5px 18px rgba(0,0,0,.08);
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+        }
+
+        .lesson-number {
+            min-width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #2563eb;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .lesson-content {
+            flex: 1;
+        }
+
+        .lesson-content h3 {
+            margin: 0 0 8px;
+        }
+
+        .lesson-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .lesson-tags span {
+            display: inline-block;
+            background: #eff6ff;
+            color: #2563eb;
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin-right: 5px;
+            font-size: 13px;
+        }
+
+        .lesson-btn,
+        .quiz-btn {
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        
+        .lesson-btn.completed {
+            background: #16a34a !important;
+            color: white;
+        }
+
+        .lesson-btn.completed:hover {
+            background: #15803d !important;
+        }
+
+        .lesson-btn:hover,
+        .quiz-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .quiz-callout {
+            margin-top: 40px;
+            padding: 30px;
+            background: #f0fdf4;
+            border: 2px solid #bbf7d0;
+            border-radius: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quiz-callout h2 {
+            margin: 0 0 8px;
+        }
+
+        .quiz-icon {
+            font-size: 40px;
+            margin-right: 15px;
+        }
+
+        .quiz-callout > div {
+            display: flex;
+            align-items: center;
+        }
+
+        @media(max-width: 700px) {
+            .course-detail-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .course-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lesson-card {
+                flex-direction: column;
+            }
+
+            .quiz-callout {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="dashboard-nav">
+
+    <div class="brand">
+        💻 Computer Education
+    </div>
+
+    <div class="nav-right">
+
+        <a href="{{ url_for('dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="{{ url_for('courses') }}">
+            Courses
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+<main class="course-detail-container">
+
+    <!-- COURSE HEADER -->
+
+    <section class="course-detail-header">
+
+        <div>
+
+            <span class="detail-level">
+                {{ course.level }}
+            </span>
+
+            <h1>
+                {{ course.icon }} {{ course.title }}
+            </h1>
+
+            <p>
+                {{ course.description }}
+            </p>
+
+        </div>
+
+        <div class="detail-big-icon">
+            {{ course.icon }}
+        </div>
+
+    </section>
+
+
+    <!-- COURSE INFO -->
+
+    <section class="course-info-grid">
+
+        <div class="info-box">
+            <span>📚</span>
+            <div>
+                <strong>{{ lessons|length }}</strong>
+                <small>Lessons</small>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <span>📚</span>
+            <div>
+                <strong>10</strong>
+                <small>Quiz Questions</small>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <span>📚</span>
+            <div>
+                <strong>{{ course.level }}</strong>
+                <small>Course Level</small>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- LESSONS -->
+
+    <section class="lessons-section">
+
+        <p class="small-text">
+            COURSE CURRICULUM
+        </p>
+
+        <h2>
+            What You Will Learn 📚
+        </h2>
+
+        <div class="lessons-list">
+
+            {% for lesson in lessons %}
+
+            <article class="lesson-card">
+
+                <div class="lesson-number">
+                    {{ loop.index }}
+                </div>
+
+                <div class="lesson-content">
+
+                    <h3>
+                        {{ lesson }}
+                    </h3>
+
+                    <p>
+                        Learn {{ lesson }} step by step with
+                        practical examples and easy explanations.
+                    </p>
+
+                    <div class="lesson-tags">
+                        <span>📖 Reading</span>
+                        <span>✍️ Practice</span>
+                    </div>
+
+                </div>
+
+                <button
+                    class="lesson-btn {% if loop.index in completed_lessons %}completed{% endif %}"
+                    onclick="openLessonPage(
+                        {{ loop.index }},
+                        {{ course.id }}
+                    )">
+
+                    {% if loop.index in completed_lessons %}
+                        COMPLETED
+                    {% else %}
+                        START LESSON
+                    {% endif %}
+
+                </button>
+
+            </article>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <!-- QUIZ -->
+
+    <section class="quiz-callout">
+
+        <div>
+
+            <span class="quiz-icon">
+💡
+            </span>
+
+            <div>
+                <h2>
+                    Ready to Test Your Knowledge?
+                </h2>
+
+                <p>
+                    Complete the lessons and then take the quiz.
+                </p>
+            </div>
+
+        </div>
+
+        <a
+            href="{{ url_for('quiz', course_id=course.id) }}"
+            class="quiz-btn">
+
+            Start Quiz 🚀
+
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- LESSON MODAL -->
+
+<div id="lessonModal"
+     style="
+        display:none;
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,.6);
+        align-items:center;
+        justify-content:center;
+        z-index:9999;
+     ">
+
+    <div style="
+        background:white;
+        width:90%;
+        max-width:600px;
+        padding:30px;
+        border-radius:20px;
+        position:relative;
+    ">
+
+        <button
+            onclick="closeLesson()"
+            style="
+                position:absolute;
+                right:15px;
+                top:10px;
+                border:none;
+                background:none;
+                font-size:30px;
+                cursor:pointer;
+            ">
+            ×
+        </button>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalBody"
+           style="line-height:1.8;color:#555;">
+        </p>
+
+        <button
+            onclick="completeLesson()"
+            class="lesson-btn">
+
+            ✓ Lesson Complete / पाठ पूरा करें
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+let currentLessonNumber = 0;
+let currentCourseId = 0;
+
+function completeLesson() {
+
+    if (!currentLessonNumber || !currentCourseId) {
+        alert("Please open a lesson first.");
+        return;
+    }
+
+    const formData = new FormData();
+
+    formData.append("course_id", currentCourseId);
+    formData.append("lesson_number", currentLessonNumber);
+
+    fetch("/complete-lesson", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+
+        if (data.success) {
+
+            alert(
+                "✓ Lesson completed successfully!\n" +
+                "✓ पाठ सफलतापूर्वक पूरा हुआ!"
+            );
+
+            closeLesson();
+
+        } else {
+
+            alert(
+                data.message ||
+                "Unable to save progress."
+            );
+        }
+
+    })
+    .catch(error => {
+
+        console.error(error);
+
+        alert(
+            "Something went wrong.\n" +
+            "कुछ समस्या हुई।"
+        );
+    });
+}
+
+
+const lessonData = {
+
+    1: [
+        {
+            title: "📘 Lesson 1: Computer Fundamentals / कंप्यूटर की मूल बातें",
+            file: "/static/lessons/Fundamental_Computer/lesson1.html"
+        },
+        {
+            title: "🖥️ Lesson 2: Computer Hardware / कंप्यूटर हार्डवेयर",
+            file: "/static/lessons/Fundamental_Computer/lesson2.html"
+        },
+        {
+            title: "💿 Lesson 3: Computer Software / कंप्यूटर सॉफ्टवेयर",
+            file: "/static/lessons/Fundamental_Computer/lesson3.html"
+        },
+        {
+            title: "⚙️ Lesson 4: Operating System / ऑपरेटिंग सिस्टम",
+            file: "/static/lessons/Fundamental_Computer/lesson4.html"
+        },
+        {
+            title: "🌐 Lesson 5: Internet & Networking / इंटरनेट और नेटवर्किंग",
+            file: "/static/lessons/Fundamental_Computer/lesson5.html"
+        }
+    ]
+
+};
+
+function showLesson(number, courseId) {
+
+    const modal = document.getElementById("lessonModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalBody = document.getElementById("modalBody");
+
+    currentLessonNumber = number;
+    currentCourseId = courseId;
+
+    const material = lessonData[courseId] &&
+                     lessonData[courseId][number - 1];
+
+    modalTitle.innerText =
+        "Lesson " + number + " / पाठ " + number;
+
+    modalBody.innerHTML = material ||
+        "<p>Study material coming soon. / अध्ययन सामग्री जल्द उपलब्ध होगी।</p>";
+
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+}
+
+function closeLesson() {
+
+    document.getElementById("lessonModal").style.display = "none";
+
+    document.body.style.overflow = "auto";
+}
+
+window.onclick = function(event) {
+
+    const modal = document.getElementById("lessonModal");
+
+    if (event.target === modal) {
+        closeLesson();
+    }
+
+};
+
+</script>
+
+
+<footer class="site-footer">
+    © 2026 Computer Education. All Rights Reserved.
+</footer>
+
+<style>
+.site-footer {
+    text-align: center;
+    padding: 18px 15px;
+    margin-top: 40px;
+    background: rgba(15, 23, 42, 0.92);
+    color: #e2e8f0;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+</style>
+
+<script>
+function openLessonPage(number, courseId) {
+    const courseFolders = {
+        1: "Fundamental_Computer",
+        2: "Microsoft_Office",
+        3: "Python_Programming",
+        4: "Web_Development",
+        5: "Advanced_Computer"
+    };
+
+    const folder = courseFolders[courseId];
+
+    if (!folder) {
+        alert("Lesson page not found for this course.");
+        return;
+    }
+
+    const lessonUrl =
+        "/static/lessons/" +
+        folder +
+        "/lesson" +
+        number +
+        ".html";
+
+    window.location.href = lessonUrl;
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

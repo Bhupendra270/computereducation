@@ -1,0 +1,1219 @@
+﻿<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fundamental Computer - Lesson 5</title>
+
+<style>
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#f4f7fb;
+    color:#222;
+    line-height:1.8;
+    margin:0;
+}
+
+.container{
+    max-width:1050px;
+    margin:30px auto;
+    background:#fff;
+    padding:38px;
+    border-radius:16px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+h1{
+    color:#123d78;
+    border-bottom:3px solid #1976d2;
+    padding-bottom:12px;
+}
+
+h2{
+    color:#1769aa;
+    margin-top:40px;
+}
+
+h3{
+    color:#333;
+    margin-top:28px;
+}
+
+.note{
+    background:#eef7ff;
+    border-left:5px solid #1976d2;
+    padding:18px;
+    margin:20px 0;
+}
+
+.example{
+    background:#f1fff4;
+    border-left:5px solid #2e9d50;
+    padding:18px;
+    margin:20px 0;
+}
+
+.warning{
+    background:#fff5f5;
+    border-left:5px solid #d32f2f;
+    padding:18px;
+    margin:20px 0;
+}
+
+.tip{
+    background:#fff9e6;
+    border-left:5px solid #f0a000;
+    padding:18px;
+    margin:20px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+}
+
+th,td{
+    border:1px solid #ccc;
+    padding:11px;
+    text-align:left;
+}
+
+th{
+    background:#eaf1fb;
+}
+
+code{
+    background:#f1f1f1;
+    padding:3px 6px;
+    border-radius:4px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌐 Lesson 5: Internet, Networking & Digital Safety</h1>
+
+<div class="note">
+<strong>Course:</strong> Fundamental Computer<br>
+<strong>Lesson:</strong> Lesson 5<br>
+<strong>Topic:</strong> Internet, Networking, Browser, Email & Digital Safety<br>
+<strong>Level:</strong> Beginner to Intermediate
+</div>
+
+<h2>1. Internet क्या है?</h2>
+
+<p>
+Internet दुनिया भर में जुड़े हुए computer networks का विशाल network है।
+इसके माध्यम से computers, servers, smartphones और अन्य network-enabled
+devices आपस में information exchange कर सकते हैं।
+</p>
+
+<p>
+Internet की सहायता से हम websites browse कर सकते हैं, email भेज सकते हैं,
+online classes कर सकते हैं, files share कर सकते हैं, video calls कर सकते हैं,
+online banking और shopping जैसी services का उपयोग कर सकते हैं।
+</p>
+
+<div class="example">
+<strong>सरल उदाहरण:</strong><br>
+आप अपने computer में browser खोलते हैं और किसी website का address enter
+करते हैं। Browser network के माध्यम से उस website के server से information
+मांगता है और received content को screen पर दिखाता है।
+</div>
+
+<h2>2. Internet और World Wide Web में अंतर</h2>
+
+<p>
+Internet और World Wide Web एक ही चीज नहीं हैं। Internet एक व्यापक
+network infrastructure है, जबकि World Wide Web Internet के ऊपर चलने वाली
+एक प्रमुख information service है।
+</p>
+
+<table>
+<tr>
+<th>Internet</th>
+<th>World Wide Web</th>
+</tr>
+<tr>
+<td>Networks का global infrastructure</td>
+<td>Web pages और websites की system</td>
+</tr>
+<tr>
+<td>कई प्रकार की services support करता है</td>
+<td>Web browsers के माध्यम से access किया जाता है</td>
+</tr>
+<tr>
+<td>Email, web, file transfer आदि services हो सकती हैं</td>
+<td>मुख्य रूप से web documents और web applications</td>
+</tr>
+</table>
+
+<h2>3. Computer Network क्या है?</h2>
+
+<p>
+जब दो या अधिक computing devices communication या resource sharing के लिए
+connect होते हैं तो उसे computer network कहा जा सकता है।
+</p>
+
+<p>
+Network का उपयोग files share करने, printers share करने, internet access
+देने, communication करने और centralized resources तक पहुंचने के लिए किया
+जा सकता है।
+</p>
+
+<h2>4. Network के मुख्य प्रकार</h2>
+
+<h3>4.1 PAN — Personal Area Network</h3>
+
+<p>
+PAN बहुत छोटे personal area में devices को connect करता है। उदाहरण के लिए
+smartphone और wireless earbuds के बीच connection personal area networking
+का उदाहरण हो सकता है।
+</p>
+
+<h3>4.2 LAN — Local Area Network</h3>
+
+<p>
+LAN एक limited geographical area में devices को connect करता है। School,
+office, laboratory या घर का network LAN का उदाहरण हो सकता है।
+</p>
+
+<h3>4.3 MAN — Metropolitan Area Network</h3>
+
+<p>
+MAN सामान्यतः city या metropolitan area के स्तर पर network connectivity
+को describe करने के लिए उपयोग किया जाता है।
+</p>
+
+<h3>4.4 WAN — Wide Area Network</h3>
+
+<p>
+WAN बड़े geographical area में networks को connect कर सकता है। Internet
+को एक global-scale network of networks के रूप में समझा जा सकता है।
+</p>
+
+<h2>5. Network Devices</h2>
+
+<h3>Router</h3>
+
+<p>
+Router अलग-अलग networks के बीच data packets को forward करने में सहायता
+करता है। घर में उपयोग होने वाला Wi-Fi router local devices को network
+और internet connectivity प्रदान कर सकता है।
+</p>
+
+<h3>Switch</h3>
+
+<p>
+Switch local network में multiple devices को connect करने के लिए उपयोग
+होता है। यह network traffic को appropriate connected device तक forward
+करने में सहायता करता है।
+</p>
+
+<h3>Modem</h3>
+
+<p>
+Modem का उपयोग कुछ internet access technologies में service provider के
+network से connection establish करने के लिए किया जाता है। Modern devices
+में modem और router functionality एक ही device में integrated भी हो सकती है।
+</p>
+
+<h3>Access Point</h3>
+
+<p>
+Wireless access point wired network connectivity को Wi-Fi जैसे wireless
+access के रूप में उपलब्ध कराने में सहायता कर सकता है।
+</p>
+
+<h2>6. IP Address क्या है?</h2>
+
+<p>
+Network पर connected devices को identify और communicate करने के लिए
+IP addresses का उपयोग किया जाता है। IP address की सहायता से network
+communication में destination और source की पहचान की जाती है।
+</p>
+
+<p>
+IPv4 addresses सामान्यतः चार numeric parts के रूप में दिखाई देते हैं,
+जैसे <code>192.168.1.10</code>। IPv6 एक newer addressing system है जो
+बहुत बड़े address space की सुविधा देता है।
+</p>
+
+<div class="warning">
+<strong>महत्वपूर्ण:</strong>
+अपना public IP address या अन्य network information किसी unknown व्यक्ति
+के साथ अनावश्यक रूप से share न करें।
+</div>
+
+<h2>7. MAC Address का Basic Concept</h2>
+
+<p>
+Network interfaces के साथ MAC address नामक hardware-level identifier
+का उपयोग local networking में किया जा सकता है। MAC address और IP address
+का purpose अलग होता है।
+</p>
+
+<table>
+<tr>
+<th>IP Address</th>
+<th>MAC Address</th>
+</tr>
+<tr>
+<td>Network addressing और routing में उपयोग</td>
+<td>Network interface identification में उपयोग</td>
+</tr>
+<tr>
+<td>Network configuration के अनुसार बदल सकता है</td>
+<td>Interface से associated identifier होता है</td>
+</tr>
+</table>
+
+<h2>8. Wi-Fi क्या है?</h2>
+
+<p>
+Wi-Fi एक wireless networking technology है जो compatible devices को
+radio communication के माध्यम से network से connect करने की सुविधा देती है।
+</p>
+
+<p>
+घर, school, office, railway station और public locations में Wi-Fi networks
+का उपयोग commonly किया जाता है।
+</p>
+
+<h3>Wi-Fi उपयोग करते समय</h3>
+
+<ul>
+<li>Strong Wi-Fi password रखें।</li>
+<li>Router की default security settings को review करें।</li>
+<li>Unknown public Wi-Fi पर sensitive transactions करते समय सावधान रहें।</li>
+<li>अपने device का software updated रखें।</li>
+<li>Network का नाम देखकर automatically उसे trusted न मानें।</li>
+</ul>
+
+<h2>9. Internet Service Provider — ISP</h2>
+
+<p>
+Internet Service Provider या ISP वह organization/company होती है जो
+customers को internet connectivity या related services provide करती है।
+</p>
+
+<p>
+जब आपका home router किसी broadband, fiber, cable या mobile network service
+से connected होता है, तो उस connectivity के पीछे service provider की
+network infrastructure काम कर सकती है।
+</p>
+
+<h2>10. Web Browser क्या है?</h2>
+
+<p>
+Web browser एक application software है जिसका उपयोग websites और web
+applications access करने के लिए किया जाता है।
+</p>
+
+<p>
+Browser web server से content प्राप्त करता है और उसे user-friendly format
+में display करता है।
+</p>
+
+<h3>Popular browser examples</h3>
+
+<ul>
+<li>Google Chrome</li>
+<li>Mozilla Firefox</li>
+<li>Microsoft Edge</li>
+<li>Apple Safari</li>
+<li>Opera</li>
+</ul>
+
+<h2>11. Browser के मुख्य भाग</h2>
+
+<h3>Address Bar</h3>
+
+<p>
+Address bar में website address या search query enter की जा सकती है।
+</p>
+
+<h3>Back Button</h3>
+
+<p>
+Previous page पर वापस जाने के लिए उपयोग किया जाता है।
+</p>
+
+<h3>Forward Button</h3>
+
+<p>
+यदि आप वापस गए हैं तो history में आगे जाने के लिए उपयोग किया जा सकता है।
+</p>
+
+<h3>Refresh</h3>
+
+<p>
+Current page को दोबारा request/load करने के लिए refresh किया जाता है।
+</p>
+
+<h3>Tabs</h3>
+
+<p>
+एक ही browser window में multiple web pages open करने के लिए tabs उपयोगी हैं।
+</p>
+
+<h2>12. Website और Web Page</h2>
+
+<p>
+Website related web pages और resources का collection हो सकती है। Web page
+उस website का एक individual page या document हो सकता है।
+</p>
+
+<div class="example">
+<strong>उदाहरण:</strong><br>
+एक school website में Home, About, Courses, Results और Contact जैसे
+अलग-अलग web pages हो सकते हैं।
+</div>
+
+<h2>13. URL क्या है?</h2>
+
+<p>
+URL का पूरा नाम Uniform Resource Locator है। यह किसी resource का web
+address बताने के लिए उपयोग किया जाता है।
+</p>
+
+<p>
+उदाहरण के रूप में browser में कोई website address enter करने पर browser
+उस address के आधार पर requested resource तक पहुंचने का प्रयास करता है।
+</p>
+
+<h2>14. HTTP और HTTPS</h2>
+
+<p>
+HTTP web communication के लिए उपयोग होने वाला protocol है। HTTPS HTTP
+का secure form है जिसमें TLS encryption का उपयोग communication को protect
+करने के लिए किया जाता है।
+</p>
+
+<div class="warning">
+<strong>ध्यान दें:</strong>
+HTTPS connection होने का मतलब यह नहीं कि website automatically trustworthy
+है। Phishing websites भी HTTPS का उपयोग कर सकती हैं। Website का domain,
+source और context भी verify करें।
+</div>
+
+<h2>15. Search Engine क्या है?</h2>
+
+<p>
+Search engine internet पर available information को खोजने और relevant
+results दिखाने में सहायता करता है।
+</p>
+
+<p>
+Search engine में सही keywords enter करने से relevant information ढूँढना
+आसान हो सकता है।
+</p>
+
+<h2>16. Effective Search कैसे करें?</h2>
+
+<p>
+Beginner users अक्सर बहुत लंबा या unclear search query लिखते हैं। बेहतर
+search के लिए मुख्य keywords चुनें।
+</p>
+
+<div class="example">
+<strong>कम प्रभावी:</strong><br>
+मुझे computer के बारे में सब कुछ बताओ और उसके सारे parts क्या होते हैं
+<br><br>
+<strong>बेहतर:</strong><br>
+computer hardware components beginner
+</div>
+
+<h3>Search Tips</h3>
+
+<ul>
+<li>Specific keywords का उपयोग करें।</li>
+<li>Unnecessary words कम रखें।</li>
+<li>जरूरत पड़ने पर exact phrase search करें।</li>
+<li>Multiple reliable sources compare करें।</li>
+<li>Date check करें जब information time-sensitive हो।</li>
+<li>Official sources को preference दें।</li>
+</ul>
+
+<h2>17. Search Results को Verify कैसे करें?</h2>
+
+<p>
+Internet पर हर information सही नहीं होती। इसलिए search result को blindly
+trust नहीं करना चाहिए।
+</p>
+
+<ul>
+<li>Source कौन है?</li>
+<li>Information कब publish हुई?</li>
+<li>क्या दूसरे reliable sources भी वही बात बताते हैं?</li>
+<li>क्या website official या credible organization से संबंधित है?</li>
+<li>क्या article evidence या references देता है?</li>
+</ul>
+
+<h2>18. Email क्या है?</h2>
+
+<p>
+Email electronic mail है। इसके माध्यम से internet या compatible network
+services पर electronic messages भेजे और प्राप्त किए जा सकते हैं।
+</p>
+
+<p>
+Email का उपयोग personal communication, education, office communication,
+documents sharing और account notifications के लिए किया जाता है।
+</p>
+
+<h2>19. Email के मुख्य भाग</h2>
+
+<table>
+<tr>
+<th>Part</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td>To</td>
+<td>Main recipient</td>
+</tr>
+<tr>
+<td>CC</td>
+<td>Additional visible recipients</td>
+</tr>
+<tr>
+<td>BCC</td>
+<td>Recipients whose addresses are hidden from other recipients</td>
+</tr>
+<tr>
+<td>Subject</td>
+<td>Email का short topic</td>
+</tr>
+<tr>
+<td>Body</td>
+<td>Main message</td>
+</tr>
+<tr>
+<td>Attachment</td>
+<td>File भेजने के लिए</td>
+</tr>
+</table>
+
+<h2>20. Professional Email कैसे लिखें?</h2>
+
+<ol>
+<li>Clear subject लिखें।</li>
+<li>उचित greeting करें।</li>
+<li>Message को short और clear रखें।</li>
+<li>Important information व्यवस्थित रखें।</li>
+<li>Attachment भेज रहे हैं तो उसे verify करें।</li>
+<li>Recipient address check करें।</li>
+<li>Send करने से पहले पूरा email पढ़ें।</li>
+</ol>
+
+<div class="example">
+<strong>Example Subject:</strong><br>
+Computer Course Assignment Submission
+<br><br>
+<strong>Example:</strong><br>
+Hello Sir/Madam,<br>
+I am submitting my computer course assignment for Lesson 5.
+Please find the attached file.<br><br>
+Thank you.
+</div>
+
+<h2>21. Cloud Computing का Basic Concept</h2>
+
+<p>
+Cloud computing में computing resources और services network के माध्यम से
+access की जाती हैं। Cloud storage इसका एक familiar example है।
+</p>
+
+<p>
+जब आप किसी online service में file upload करते हैं और बाद में दूसरे device
+से उसे access करते हैं, तो cloud-based storage/service का उपयोग हो सकता है।
+</p>
+
+<h3>Cloud के फायदे</h3>
+
+<ul>
+<li>Multiple devices से access</li>
+<li>Easy sharing</li>
+<li>Remote access</li>
+<li>Scalable services</li>
+<li>Centralized management</li>
+</ul>
+
+<h3>Cloud की सावधानियाँ</h3>
+
+<ul>
+<li>Strong account security रखें।</li>
+<li>Important data की independent backup strategy रखें।</li>
+<li>Privacy policy समझें।</li>
+<li>Unknown sharing links से सावधान रहें।</li>
+</ul>
+
+<h2>22. Download और Upload</h2>
+
+<p>
+Internet से अपने device पर file प्राप्त करने की प्रक्रिया को download
+कहा जाता है। अपने device से remote server या online service पर file भेजने
+को upload कहा जाता है।
+</p>
+
+<div class="example">
+<strong>Example:</strong><br>
+Website से PDF अपने computer में save करना = Download<br>
+Computer से assignment website पर submit करना = Upload
+</div>
+
+<h2>23. Bandwidth और Speed</h2>
+
+<p>
+Network connection की capacity को समझने के लिए bandwidth शब्द उपयोग किया
+जाता है। Internet speed को सामान्यतः bits per second में measure किया जाता
+है, जैसे Mbps या Gbps।
+</p>
+
+<p>
+Actual download speed केवल advertised bandwidth पर depend नहीं करती।
+Network congestion, server performance, Wi-Fi signal, device capability
+और अन्य factors भी experience को प्रभावित कर सकते हैं।
+</p>
+
+<h2>24. Latency क्या है?</h2>
+
+<p>
+Latency communication में delay को describe करती है। Online gaming,
+video calls और interactive applications में low latency महत्वपूर्ण हो सकती है।
+</p>
+
+<p>
+High bandwidth और low latency अलग concepts हैं। किसी connection में
+bandwidth अच्छी हो सकती है लेकिन latency फिर भी अधिक हो सकती है।
+</p>
+
+<h2>25. Cyber Security क्या है?</h2>
+
+<p>
+Cyber security का उद्देश्य computers, networks, accounts, applications
+और digital information को unauthorized access, misuse, damage और अन्य
+digital threats से protect करना है।
+</p>
+
+<p>
+Beginner level पर cyber security की सबसे महत्वपूर्ण habit awareness है।
+Unknown links, suspicious attachments, fake login pages और unexpected
+requests से सावधान रहना चाहिए।
+</p>
+
+<h2>26. Malware क्या है?</h2>
+
+<p>
+Malware malicious software का general term है। इसका उपयोग ऐसे software
+के लिए किया जाता है जो harmful, unauthorized या unwanted activities
+perform कर सकता है।
+</p>
+
+<h3>Malware के कुछ प्रकार</h3>
+
+<ul>
+<li>Virus</li>
+<li>Worm</li>
+<li>Trojan</li>
+<li>Ransomware</li>
+<li>Spyware</li>
+</ul>
+
+<div class="warning">
+किसी unknown file को केवल इसलिए open न करें क्योंकि वह interesting या
+urgent दिखाई दे रही है।
+</div>
+
+<h2>27. Virus का Basic Concept</h2>
+
+<p>
+Computer virus ऐसा malicious code हो सकता है जो files या programs के
+साथ attach होकर spread करने का प्रयास करता है। Modern malware landscape
+में कई अलग प्रकार के threats होते हैं, इसलिए हर security problem को
+सिर्फ "virus" कहना technically सही नहीं होता।
+</p>
+
+<h2>28. Phishing क्या है?</h2>
+
+<p>
+Phishing एक social engineering technique है जिसमें attacker user को
+fake message, email, website या अन्य communication के माध्यम से sensitive
+information देने के लिए धोखा देने का प्रयास करता है।
+</p>
+
+<p>
+Attacker bank, government department, delivery company, school, employer
+या किसी known service का नाम इस्तेमाल कर सकता है।
+</p>
+
+<div class="warning">
+<strong>Phishing पहचानने के संकेत:</strong>
+</div>
+
+<ul>
+<li>बहुत ज्यादा urgency या डर पैदा करना।</li>
+<li>Password या OTP तुरंत मांगना।</li>
+<li>Suspicious link देना।</li>
+<li>Unknown sender address।</li>
+<li>अजीब spelling या grammar।</li>
+<li>Unexpected attachment।</li>
+<li>Payment या account verification का दबाव।</li>
+</ul>
+
+<h2>29. OTP Security</h2>
+
+<p>
+OTP यानी One-Time Password authentication में अतिरिक्त verification
+के लिए उपयोग किया जा सकता है।
+</p>
+
+<div class="warning">
+<strong>महत्वपूर्ण:</strong>
+OTP, password, PIN या authentication codes किसी unknown व्यक्ति के साथ
+share नहीं करें। कोई व्यक्ति खुद को bank employee या support agent बताकर
+भी sensitive authentication information मांग सकता है।
+</div>
+
+<h2>30. Strong Password कैसे बनाएं?</h2>
+
+<p>
+Strong password या passphrase account security को improve करने में मदद
+कर सकता है।
+</p>
+
+<ul>
+<li>लंबा password/passphrase रखें।</li>
+<li>Guess किए जाने वाले personal information से बचें।</li>
+<li>हर महत्वपूर्ण account के लिए unique password रखें।</li>
+<li>Password manager का उपयोग किया जा सकता है।</li>
+<li>जहाँ उपलब्ध हो MFA/2FA enable करें।</li>
+</ul>
+
+<h2>31. Two-Factor Authentication</h2>
+
+<p>
+Two-factor authentication या 2FA में password के अलावा एक additional
+verification factor की आवश्यकता होती है।
+</p>
+
+<p>
+यह account security की एक अतिरिक्त layer प्रदान करता है। यदि password
+किसी कारण से compromise हो जाए, तो दूसरा factor attacker के लिए अतिरिक्त
+barrier बन सकता है।
+</p>
+
+<h2>32. Public Computer Safety</h2>
+
+<p>
+Public computer, cyber cafe या shared computer उपयोग करते समय extra
+caution रखें।
+</p>
+
+<ul>
+<li>Private accounts में login करने से पहले environment check करें।</li>
+<li>Password save करने के option को shared system पर avoid करें।</li>
+<li>काम पूरा होने पर logout करें।</li>
+<li>Sensitive files device पर न छोड़ें।</li>
+<li>Browser history/downloads और local files की privacy का ध्यान रखें।</li>
+</ul>
+
+<h2>33. Social Media Safety</h2>
+
+<p>
+Social media पर information share करते समय privacy का ध्यान रखना चाहिए।
+हर photo, location, document या personal detail public करना जरूरी नहीं है।
+</p>
+
+<ul>
+<li>Privacy settings review करें।</li>
+<li>Unknown requests accept न करें।</li>
+<li>Personal documents public न करें।</li>
+<li>Live location sharing से सावधान रहें।</li>
+<li>Suspicious links से बचें।</li>
+</ul>
+
+<h2>34. Digital Footprint</h2>
+
+<p>
+Digital footprint से आशय online activities से बनने वाले digital records
+और traces से है। Posts, comments, uploaded files, public profiles और
+online interactions future में आपके digital identity का हिस्सा बन सकते हैं।
+</p>
+
+<p>
+इसलिए internet पर कुछ publish करने से पहले सोचें कि क्या आप उसे लंबे
+समय तक public रहने के लिए comfortable हैं।
+</p>
+
+<h2>35. Privacy क्या है?</h2>
+
+<p>
+Privacy का अर्थ है अपनी personal information और activities पर उचित
+control रखना। Digital world में privacy का संबंध names, phone numbers,
+addresses, photographs, financial information, account credentials और
+other personal data से हो सकता है।
+</p>
+
+<h2>36. Safe Browsing Rules</h2>
+
+<ul>
+<li>Website address carefully check करें।</li>
+<li>Suspicious popups पर click न करें।</li>
+<li>Unknown downloads से बचें।</li>
+<li>Browser और operating system updated रखें।</li>
+<li>Sensitive information केवल trusted context में enter करें।</li>
+<li>Important accounts पर MFA enable करें।</li>
+</ul>
+
+<h2>37. Fake Website पहचानना</h2>
+
+<p>
+Fake websites original websites जैसी दिख सकती हैं। केवल logo या design
+देखकर website को genuine नहीं मानना चाहिए।
+</p>
+
+<p>
+Domain name carefully check करें। Unexpected spelling, strange subdomains,
+unusual requests और suspicious payment instructions warning signs हो सकते हैं।
+</p>
+
+<h2>38. Digital Payment Safety</h2>
+
+<p>
+Online payment करते समय official application या trusted website का उपयोग
+करें। Payment details और authentication codes को confidential रखें।
+</p>
+
+<ul>
+<li>Payment recipient verify करें।</li>
+<li>Amount check करें।</li>
+<li>Unknown QR code या payment request पर सावधान रहें।</li>
+<li>OTP/PIN share न करें।</li>
+<li>Transaction notification को ध्यान से पढ़ें।</li>
+</ul>
+
+<h2>39. Browser History और Cookies</h2>
+
+<p>
+Browser history visited pages की information store कर सकती है। Cookies
+websites द्वारा browser में stored छोटे pieces of data हैं जिनका उपयोग
+preferences, sessions और अन्य web functionality के लिए किया जा सकता है।
+</p>
+
+<p>
+Cookies हमेशा malicious नहीं होतीं, लेकिन privacy settings को समझना
+अच्छी digital habit है।
+</p>
+
+<h2>40. Cache क्या है?</h2>
+
+<p>
+Cache frequently used data या resources की temporary copies रखकर
+applications और websites को कुछ situations में faster load होने में
+मदद कर सकता है।
+</p>
+
+<p>
+कभी-कभी outdated cached content के कारण website changes तुरंत दिखाई
+नहीं देते। ऐसे मामलों में refresh या appropriate cache clearing helpful
+हो सकता है।
+</p>
+
+<h2>41. Practical Exercise — Browser</h2>
+
+<ol>
+<li>अपना browser खोलें।</li>
+<li>एक trusted website खोलें।</li>
+<li>नई tab खोलें।</li>
+<li>किसी educational topic को search करें।</li>
+<li>दो अलग sources देखें।</li>
+<li>उनकी publication date और source compare करें।</li>
+<li>एक useful page bookmark करें।</li>
+<li>Browser history में visited page identify करें।</li>
+</ol>
+
+<h2>42. Practical Exercise — Email</h2>
+
+<ol>
+<li>अपना email account खोलें।</li>
+<li>Compose पर click करें।</li>
+<li>एक clear subject लिखें।</li>
+<li>Short professional message लिखें।</li>
+<li>यदि जरूरी हो तो harmless practice file attach करें।</li>
+<li>Recipient address carefully verify करें।</li>
+<li>Send करने से पहले पूरा message check करें।</li>
+</ol>
+
+<h2>43. Practical Exercise — Network Information</h2>
+
+<p>
+अपने computer में network settings खोलें और निम्न concepts identify करने
+का प्रयास करें:
+</p>
+
+<ul>
+<li>Connected network</li>
+<li>Wi-Fi status</li>
+<li>IP address</li>
+<li>DNS information यदि available हो</li>
+<li>Connection type</li>
+</ul>
+
+<p>
+इस exercise का उद्देश्य network information को समझना है, किसी network को
+attack या unauthorized access करना नहीं।
+</p>
+
+<h2>44. Troubleshooting Internet Problems</h2>
+
+<h3>Problem: Internet नहीं चल रहा</h3>
+
+<ol>
+<li>Check करें कि device Wi-Fi/network से connected है।</li>
+<li>दूसरी website खोलकर test करें।</li>
+<li>Wi-Fi disconnect/reconnect करें।</li>
+<li>Router की स्थिति check करें।</li>
+<li>यदि अन्य devices भी offline हैं तो network/service issue हो सकता है।</li>
+<li>यदि केवल एक application problem कर रही है तो application-specific issue check करें।</li>
+</ol>
+
+<h3>Problem: Website नहीं खुल रही</h3>
+
+<ul>
+<li>URL spelling check करें।</li>
+<li>दूसरी website खोलकर internet test करें।</li>
+<li>Page refresh करें।</li>
+<li>Browser restart करें।</li>
+<li>यदि दूसरी websites चल रही हैं तो specific website की समस्या हो सकती है।</li>
+</ul>
+
+<h2>45. Common Internet Mistakes</h2>
+
+<ul>
+<li>हर search result को सच मान लेना।</li>
+<li>Unknown links पर click करना।</li>
+<li>OTP share करना।</li>
+<li>एक ही password हर जगह रखना।</li>
+<li>Public computer पर account logout न करना।</li>
+<li>Fake websites को केवल design देखकर genuine मान लेना।</li>
+<li>Important data का backup न रखना।</li>
+<li>Unknown attachments खोलना।</li>
+</ul>
+
+<h2>46. Internet और Education</h2>
+
+<p>
+Internet education को बहुत powerful बना सकता है। Students online courses,
+digital books, documentation, tutorials, educational videos और research
+resources access कर सकते हैं।
+</p>
+
+<p>
+लेकिन educational information के लिए source quality verify करना जरूरी है।
+एक ही topic को multiple reliable sources से compare करना बेहतर learning
+habit है।
+</p>
+
+<h2>47. Internet और Business</h2>
+
+<p>
+Business में internet communication, online marketing, e-commerce,
+cloud services, customer support, remote work और digital collaboration
+के लिए उपयोग किया जाता है।
+</p>
+
+<h2>48. Internet और Communication</h2>
+
+<p>
+Email, messaging, voice calls, video conferencing और social platforms
+internet-based communication के common examples हैं।
+</p>
+
+<h2>49. Internet और Online Services</h2>
+
+<p>
+आज कई services online उपलब्ध हैं, जैसे ticket booking, appointment
+booking, education, banking, shopping और government services।
+</p>
+
+<p>
+Online service use करते समय हमेशा official website या official application
+की पहचान verify करें।
+</p>
+
+<h2>50. Digital Citizenship</h2>
+
+<p>
+Digital citizenship का अर्थ responsible और respectful तरीके से digital
+technology और online services का उपयोग करना है।
+</p>
+
+<ul>
+<li>दूसरों की privacy का सम्मान करें।</li>
+<li>False information बिना verification share न करें।</li>
+<li>Copyright और intellectual property का सम्मान करें।</li>
+<li>Online communication में respectful language रखें।</li>
+<li>Personal और sensitive information सुरक्षित रखें।</li>
+</ul>
+
+<h2>51. Copyright का Basic Concept</h2>
+
+<p>
+किसी व्यक्ति या organization द्वारा बनाई गई original digital content पर
+copyright या अन्य intellectual property rights लागू हो सकते हैं।
+</p>
+
+<p>
+Internet पर available होने का मतलब यह नहीं है कि कोई content बिना
+permission के freely copy या redistribute किया जा सकता है।
+</p>
+
+<h2>52. Backup Strategy</h2>
+
+<p>
+Important files के लिए केवल एक copy पर depend करना risk पैदा कर सकता है।
+Practical backup strategy में important documents की अतिरिक्त copies
+अलग storage या trusted cloud location में रखी जा सकती हैं।
+</p>
+
+<div class="tip">
+<strong>Simple Rule:</strong><br>
+Important file → Original + Backup Copy
+</div>
+
+<h2>53. Lesson 5 Important Terms</h2>
+
+<table>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td>Internet</td>
+<td>Global network of interconnected networks</td>
+</tr>
+<tr>
+<td>LAN</td>
+<td>Local Area Network</td>
+</tr>
+<tr>
+<td>WAN</td>
+<td>Wide Area Network</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>Networks के बीच traffic forward करने वाला device</td>
+</tr>
+<tr>
+<td>Browser</td>
+<td>Websites access करने वाला application</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>Web resource का address</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>Secure HTTP communication</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>Electronic messaging system</td>
+</tr>
+<tr>
+<td>Download</td>
+<td>Remote source से अपने device पर data प्राप्त करना</td>
+</tr>
+<tr>
+<td>Upload</td>
+<td>अपने device से remote service पर data भेजना</td>
+</tr>
+<tr>
+<td>Phishing</td>
+<td>Fake communication द्वारा information चोरी करने का प्रयास</td>
+</tr>
+<tr>
+<td>Malware</td>
+<td>Malicious software</td>
+</tr>
+<tr>
+<td>Backup</td>
+<td>Data की अतिरिक्त copy</td>
+</tr>
+</table>
+
+<h2>54. Quick Revision / त्वरित Revision</h2>
+
+<ul>
+<li>Internet networks का global network है।</li>
+<li>Web Internet पर चलने वाली प्रमुख service है।</li>
+<li>LAN local area में network provide करता है।</li>
+<li>WAN बड़े geographical area में networking से संबंधित है।</li>
+<li>Router network traffic forward करने में सहायता करता है।</li>
+<li>Browser websites access करता है।</li>
+<li>URL web resource का address है।</li>
+<li>HTTPS encrypted web communication provide करता है।</li>
+<li>Email electronic messages भेजने के लिए उपयोग होता है।</li>
+<li>Download का अर्थ remote source से data प्राप्त करना है।</li>
+<li>Upload का अर्थ remote service पर data भेजना है।</li>
+<li>Phishing social engineering attack का एक common form है।</li>
+<li>Strong passwords और MFA account security improve करते हैं।</li>
+<li>Backup data loss के risk को कम करने में मदद करता है।</li>
+</ul>
+
+<h2>55. Practice Questions / अभ्यास प्रश्न</h2>
+
+<ol>
+<li>Internet क्या है?</li>
+<li>Internet और World Wide Web में अंतर बताइए।</li>
+<li>Computer network क्या है?</li>
+<li>LAN और WAN में अंतर लिखिए।</li>
+<li>Router क्या है?</li>
+<li>IP address क्या है?</li>
+<li>Web browser क्या है?</li>
+<li>URL का पूरा नाम क्या है?</li>
+<li>HTTPS क्या है?</li>
+<li>Search engine क्या है?</li>
+<li>Email के मुख्य parts कौन-कौन से हैं?</li>
+<li>Download और upload में अंतर बताइए।</li>
+<li>Phishing क्या है?</li>
+<li>Malware क्या है?</li>
+<li>Strong password क्यों जरूरी है?</li>
+<li>Two-factor authentication क्या है?</li>
+<li>Backup क्या है?</li>
+<li>Public Wi-Fi use करते समय कौन-कौन सी सावधानियाँ रखनी चाहिए?</li>
+<li>Fake website कैसे पहचान सकते हैं?</li>
+<li>Digital citizenship क्या है?</li>
+</ol>
+
+<h2>56. Viva Questions / मौखिक प्रश्न</h2>
+
+<ol>
+<li>Internet का उपयोग क्यों किया जाता है?</li>
+<li>Browser का क्या काम है?</li>
+<li>क्या Chrome एक operating system है?</li>
+<li>क्या Chrome एक browser है?</li>
+<li>Router का क्या उपयोग है?</li>
+<li>URL क्या बताता है?</li>
+<li>HTTPS का क्या फायदा है?</li>
+<li>OTP किसी को share करना चाहिए?</li>
+<li>Phishing क्या है?</li>
+<li>Backup क्यों बनाया जाता है?</li>
+</ol>
+
+<h2>57. Final Practical Project</h2>
+
+<p>
+अब Lesson 5 के concepts को एक छोटे practical project में combine करें।
+मान लें कि आपको अपने computer course के लिए online research करनी है।
+</p>
+
+<ol>
+<li>Browser open करें।</li>
+<li>एक educational topic चुनें।</li>
+<li>Search engine में specific keywords डालें।</li>
+<li>कम से कम दो reliable sources compare करें।</li>
+<li>Useful information अपने notes में लिखें।</li>
+<li>Source/page का reference save करें।</li>
+<li>Notes को organized folder में save करें।</li>
+<li>File की backup copy बनाएं।</li>
+<li>यदि assignment submit करना हो तो official portal verify करें।</li>
+<li>Submission के बाद confirmation को सुरक्षित रखें।</li>
+</ol>
+
+<h2>58. Complete Fundamental Computer Course Revision</h2>
+
+<p>
+अब पाँचों lessons को एक साथ देखें। Lesson 1 में computer fundamentals,
+data, information, input, processing, output, storage, hardware और
+software के basic concepts सीखे गए। Lesson 2 में hardware components
+और उनके functions को detail में समझा गया। Lesson 3 में software और
+programs की basic concepts को समझा गया। Lesson 4 में operating system,
+files, folders, system management और troubleshooting सीखा गया।
+Lesson 5 में internet, networking, browsers, email और digital safety
+समझी गई।
+</p>
+
+<div class="example">
+<strong>Complete Computer Learning Flow:</strong><br><br>
+Computer Fundamentals<br>
+↓<br>
+Hardware + Software<br>
+↓<br>
+Operating System<br>
+↓<br>
+Files + Applications<br>
+↓<br>
+Internet + Networking<br>
+↓<br>
+Online Communication<br>
+↓<br>
+Cyber Security + Digital Safety
+</div>
+
+<h2>59. Final Summary / अंतिम सारांश</h2>
+
+<p>
+Internet और networking आधुनिक computer usage का बहुत महत्वपूर्ण हिस्सा हैं।
+एक beginner को केवल website खोलना ही नहीं, बल्कि यह भी समझना चाहिए कि
+network, browser, URL, server, download, upload, email और online security
+जैसे concepts कैसे जुड़े हुए हैं।
+</p>
+
+<p>
+सबसे महत्वपूर्ण skill digital awareness है। Internet पर available हर
+information automatically correct नहीं होती और हर message genuine नहीं
+होता। इसलिए source verification, strong authentication, privacy,
+backup और safe browsing habits को computer education का essential हिस्सा
+मानना चाहिए।
+</p>
+
+<div class="note">
+<strong>Golden Rule of Digital Safety:</strong><br>
+Think → Verify → Then Click / Share / Pay
+</div>
+
+<h2>60. Lesson 5 Completion Checklist</h2>
+
+<ul>
+<li>☐ Internet की definition समझी</li>
+<li>☐ Internet और Web का difference समझा</li>
+<li>☐ LAN और WAN समझे</li>
+<li>☐ Router और network devices समझे</li>
+<li>☐ IP address का basic concept समझा</li>
+<li>☐ Browser और URL समझे</li>
+<li>☐ Search engine का सही उपयोग सीखा</li>
+<li>☐ Email के parts समझे</li>
+<li>☐ Download और Upload समझे</li>
+<li>☐ Cloud computing का basic concept समझा</li>
+<li>☐ Phishing और Malware समझे</li>
+<li>☐ Password और MFA security समझी</li>
+<li>☐ Public computer safety समझी</li>
+<li>☐ Backup का महत्व समझा</li>
+<li>☐ Safe browsing rules practice किए</li>
+</ul>
+
+<h2>🎓 Course Complete</h2>
+
+<p>
+<strong>Congratulations!</strong> आपने Fundamental Computer course के
+मुख्य पाँच lessons पूरे कर लिए हैं। अब अगला लक्ष्य केवल theory पढ़ना
+नहीं, बल्कि रोज computer पर practical activities करना है।
+</p>
+
+<p>
+एक beginner से confident computer user बनने के लिए regular practice,
+problem solving और safe digital habits सबसे महत्वपूर्ण हैं।
+</p>
+
+</div>
+
+</body>
+</html>

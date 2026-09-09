@@ -1,0 +1,1081 @@
+﻿<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fundamental Computer - Lesson 4</title>
+
+<style>
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#f4f7fb;
+    color:#222;
+    line-height:1.8;
+    margin:0;
+}
+
+.container{
+    max-width:1050px;
+    margin:30px auto;
+    background:#fff;
+    padding:38px;
+    border-radius:16px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+h1{
+    color:#123d78;
+    border-bottom:3px solid #1976d2;
+    padding-bottom:12px;
+}
+
+h2{
+    color:#1769aa;
+    margin-top:40px;
+}
+
+h3{
+    color:#333;
+    margin-top:28px;
+}
+
+h4{
+    color:#555;
+}
+
+.note{
+    background:#eef7ff;
+    border-left:5px solid #1976d2;
+    padding:18px;
+    margin:20px 0;
+}
+
+.example{
+    background:#f1fff4;
+    border-left:5px solid #2e9d50;
+    padding:18px;
+    margin:20px 0;
+}
+
+.warning{
+    background:#fff5f5;
+    border-left:5px solid #d32f2f;
+    padding:18px;
+    margin:20px 0;
+}
+
+.tip{
+    background:#fff9e6;
+    border-left:5px solid #f0a000;
+    padding:18px;
+    margin:20px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+}
+
+th,td{
+    border:1px solid #ccc;
+    padding:11px;
+    text-align:left;
+}
+
+th{
+    background:#eaf1fb;
+}
+
+code{
+    background:#f1f1f1;
+    padding:3px 6px;
+    border-radius:4px;
+}
+
+.badge{
+    display:inline-block;
+    background:#1769aa;
+    color:white;
+    padding:5px 12px;
+    border-radius:20px;
+    margin:4px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🖥️ Lesson 4: Operating System & System Management</h1>
+
+<div class="note">
+<strong>Course:</strong> Fundamental Computer<br>
+<strong>Lesson:</strong> Lesson 4<br>
+<strong>Topic:</strong> Operating System / ऑपरेटिंग सिस्टम<br>
+<strong>Level:</strong> Beginner to Intermediate
+</div>
+
+<h2>1. Operating System क्या है?</h2>
+
+<p>
+Operating System या OS computer का सबसे महत्वपूर्ण system software है।
+यह user और computer hardware के बीच एक interface के रूप में काम करता है।
+जब हम computer को start करते हैं तो operating system computer के hardware
+resources को initialize और manage करने में महत्वपूर्ण भूमिका निभाता है।
+</p>
+
+<p>
+सरल भाषा में समझें तो operating system वह software है जिसकी सहायता से
+हम computer को आसानी से use कर पाते हैं। यदि operating system न हो तो
+सामान्य user के लिए keyboard, mouse, storage, applications और दूसरे
+hardware resources का उपयोग करना बहुत कठिन हो जाएगा।
+</p>
+
+<div class="example">
+<strong>सरल उदाहरण:</strong><br>
+जब आप computer में keyboard से कोई letter type करते हैं, तो keyboard
+hardware input देता है। Operating system उस input को receive करता है और
+application तक पहुंचाने में सहायता करता है। Application उस input को
+screen पर दिखा सकती है।
+</div>
+
+<h2>2. Operating System की आवश्यकता क्यों होती है?</h2>
+
+<p>
+Computer में CPU, RAM, storage, keyboard, mouse, monitor, printer और
+network जैसे अनेक hardware components होते हैं। इन सभी resources को
+manage करने के लिए एक control system की आवश्यकता होती है।
+</p>
+
+<p>
+Operating system applications को hardware resources का उपयोग करने के लिए
+एक व्यवस्थित environment प्रदान करता है। यह files manage करता है,
+programs चलाता है, memory manage करता है और users को graphical या
+command-based interface देता है।
+</p>
+
+<h3>मुख्य उद्देश्य</h3>
+
+<ul>
+<li>Computer hardware को manage करना।</li>
+<li>Applications को run करने का environment देना।</li>
+<li>Files और folders को manage करना।</li>
+<li>Memory और processor resources manage करना।</li>
+<li>Input और output devices को manage करना।</li>
+<li>User को computer के साथ interact करने की सुविधा देना।</li>
+<li>Security और user permissions को manage करने में सहायता करना।</li>
+</ul>
+
+<h2>3. Operating System के उदाहरण</h2>
+
+<p>
+अलग-अलग devices और computers के लिए अलग-अलग operating systems उपलब्ध हैं।
+कुछ operating systems desktop और laptop computers में widely used हैं,
+जबकि कुछ mobile devices और specialized systems के लिए बनाए गए हैं।
+</p>
+
+<ul>
+<li>Microsoft Windows</li>
+<li>GNU/Linux</li>
+<li>macOS</li>
+<li>Android</li>
+<li>iOS</li>
+<li>ChromeOS</li>
+</ul>
+
+<div class="tip">
+<strong>याद रखें:</strong>
+Windows, Linux, macOS और Android जैसे नाम operating systems के उदाहरण हैं।
+हर operating system का interface, features और supported hardware अलग हो सकता है।
+</div>
+
+<h2>4. User और Operating System का संबंध</h2>
+
+<p>
+User सीधे computer hardware के प्रत्येक technical component को control
+नहीं करता। User सामान्यतः operating system और applications के माध्यम से
+computer के साथ interact करता है।
+</p>
+
+<p>
+उदाहरण के लिए जब आप किसी file को delete करते हैं, तो आप केवल mouse से
+Delete option select करते हैं। Background में operating system उस command
+को process करता है और file system में आवश्यक operation करता है।
+</p>
+
+<div class="example">
+<strong>Flow:</strong><br>
+User → Operating System → Hardware / Storage → Result → User
+</div>
+
+<h2>5. Operating System के मुख्य कार्य</h2>
+
+<h3>5.1 Process Management</h3>
+
+<p>
+Computer में एक समय पर कई programs और processes चल सकते हैं। Operating
+system processor resources को manage करने में सहायता करता है और अलग-अलग
+processes को आवश्यक CPU time देता है।
+</p>
+
+<p>
+उदाहरण के लिए आप browser चला रहे हैं, music सुन रहे हैं और document
+edit कर रहे हैं। Operating system इन activities के लिए computing resources
+manage करता है।
+</p>
+
+<h3>5.2 Memory Management</h3>
+
+<p>
+RAM computer की working memory है। Operating system यह manage करने में
+सहायता करता है कि कौन सा running program memory का उपयोग कर रहा है और
+किस program को कितनी memory उपलब्ध हो सकती है।
+</p>
+
+<p>
+जब कोई application बंद होती है तो उसके द्वारा उपयोग की गई memory को
+system आवश्यकतानुसार दूसरे कामों के लिए उपलब्ध करा सकता है।
+</p>
+
+<h3>5.3 File Management</h3>
+
+<p>
+Operating system files और folders को organize और manage करने की सुविधा
+देता है। User files create, open, copy, move, rename और delete कर सकता है।
+</p>
+
+<p>
+File management computer usage की सबसे basic और important skills में से
+एक है।
+</p>
+
+<h3>5.4 Device Management</h3>
+
+<p>
+Keyboard, mouse, printer, scanner, speakers, webcam और storage devices
+जैसे hardware components के साथ communication को manage करने में
+operating system महत्वपूर्ण भूमिका निभाता है।
+</p>
+
+<h3>5.5 Security Management</h3>
+
+<p>
+Operating system user accounts, passwords, permissions और security
+settings जैसी सुविधाएँ provide कर सकता है। इसका उद्देश्य unauthorized
+access को कम करना और system resources को controlled तरीके से access
+कराना है।
+</p>
+
+<h3>5.6 User Interface</h3>
+
+<p>
+Operating system user को computer के साथ interact करने के लिए interface
+देता है। Modern operating systems में graphical user interface यानी GUI
+बहुत common है।
+</p>
+
+<h2>6. GUI क्या है?</h2>
+
+<p>
+GUI का पूरा नाम Graphical User Interface है। इसमें user computer के
+साथ graphical elements जैसे icons, windows, menus, buttons और pointers
+के माध्यम से interact करता है।
+</p>
+
+<p>
+GUI ने computer को beginners के लिए अधिक user-friendly बनाया है।
+User को हर command याद रखने की आवश्यकता नहीं होती। वह visual elements
+पर click करके कई tasks कर सकता है।
+</p>
+
+<h3>GUI के सामान्य elements</h3>
+
+<ul>
+<li>Desktop</li>
+<li>Icons</li>
+<li>Windows</li>
+<li>Taskbar</li>
+<li>Start Menu</li>
+<li>Menus</li>
+<li>Buttons</li>
+<li>Scrollbars</li>
+<li>Dialog Boxes</li>
+<li>Mouse Pointer</li>
+</ul>
+
+<h2>7. Desktop क्या है?</h2>
+
+<p>
+Operating system में login करने के बाद दिखाई देने वाला मुख्य working
+area अक्सर desktop कहलाता है। Desktop पर shortcuts, icons, taskbar और
+अन्य interface elements दिखाई दे सकते हैं।
+</p>
+
+<p>
+Desktop को physical table समझना सही नहीं है। यह एक graphical workspace
+है जहाँ user applications और files तक आसानी से पहुंच सकता है।
+</p>
+
+<h2>8. Icons क्या हैं?</h2>
+
+<p>
+Icon एक छोटा graphical symbol होता है जो किसी application, file, folder,
+shortcut या system function को represent कर सकता है।
+</p>
+
+<p>
+उदाहरण के लिए किसी folder का icon उस folder को represent करता है।
+किसी application का icon उस application को open करने के लिए उपयोग किया
+जा सकता है।
+</p>
+
+<h2>9. Taskbar क्या है?</h2>
+
+<p>
+Windows जैसे graphical operating systems में taskbar एक महत्वपूर्ण
+interface element है। इसमें running applications, system notifications,
+network, sound, battery और अन्य controls दिखाई दे सकते हैं।
+</p>
+
+<p>
+Taskbar की exact appearance और features operating system version और
+settings के अनुसार बदल सकती हैं।
+</p>
+
+<h2>10. Start Menu</h2>
+
+<p>
+Windows operating system में Start Menu applications, settings और अन्य
+system functions तक पहुंचने का एक प्रमुख तरीका है।
+</p>
+
+<p>
+Beginner user Start Menu का उपयोग applications search करने, settings
+open करने और system functions तक पहुंचने के लिए कर सकता है।
+</p>
+
+<h2>11. File क्या है?</h2>
+
+<p>
+File digital information का एक organized unit है जिसे storage device पर
+save किया जाता है। Text document, image, audio, video, spreadsheet और
+presentation सभी अलग-अलग प्रकार की files हो सकती हैं।
+</p>
+
+<h3>File के उदाहरण</h3>
+
+<ul>
+<li><code>notes.txt</code></li>
+<li><code>homework.docx</code></li>
+<li><code>photo.jpg</code></li>
+<li><code>song.mp3</code></li>
+<li><code>video.mp4</code></li>
+<li><code>marks.xlsx</code></li>
+<li><code>presentation.pptx</code></li>
+</ul>
+
+<h2>12. File Extension क्या है?</h2>
+
+<p>
+File extension सामान्यतः file name के अंत में दिखाई देने वाला हिस्सा
+है जो file type को identify करने में सहायता करता है।
+</p>
+
+<table>
+<tr>
+<th>Extension</th>
+<th>सामान्य File Type</th>
+</tr>
+<tr>
+<td>.txt</td>
+<td>Text file</td>
+</tr>
+<tr>
+<td>.docx</td>
+<td>Word document</td>
+</tr>
+<tr>
+<td>.xlsx</td>
+<td>Spreadsheet</td>
+</tr>
+<tr>
+<td>.pptx</td>
+<td>Presentation</td>
+</tr>
+<tr>
+<td>.jpg / .jpeg</td>
+<td>Image</td>
+</tr>
+<tr>
+<td>.png</td>
+<td>Image</td>
+</tr>
+<tr>
+<td>.mp3</td>
+<td>Audio</td>
+</tr>
+<tr>
+<td>.mp4</td>
+<td>Video</td>
+</tr>
+<tr>
+<td>.html</td>
+<td>Web page document</td>
+</tr>
+</table>
+
+<div class="warning">
+<strong>सावधानी:</strong>
+File extension देखकर किसी file को automatically safe नहीं मानना चाहिए।
+Unknown files को open करने से पहले source और security पर ध्यान देना चाहिए।
+</div>
+
+<h2>13. Folder क्या है?</h2>
+
+<p>
+Folder एक container की तरह है जिसमें files और दूसरे folders रखे जा सकते हैं।
+Folders की सहायता से computer data को व्यवस्थित रखना आसान होता है।
+</p>
+
+<div class="example">
+<strong>उदाहरण:</strong><br>
+Documents<br>
+&nbsp;&nbsp;→ School<br>
+&nbsp;&nbsp;&nbsp;&nbsp;→ Maths.docx<br>
+&nbsp;&nbsp;&nbsp;&nbsp;→ English.docx<br>
+&nbsp;&nbsp;→ Personal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;→ Notes.txt
+</div>
+
+<h2>14. File और Folder में अंतर</h2>
+
+<table>
+<tr>
+<th>File</th>
+<th>Folder</th>
+</tr>
+<tr>
+<td>Digital information store करती है।</td>
+<td>Files और folders को organize करता है।</td>
+</tr>
+<tr>
+<td>जैसे photo, document, video।</td>
+<td>जैसे Documents, Pictures, School।</td>
+</tr>
+<tr>
+<td>अलग-अलग file types हो सकती हैं।</td>
+<td>अलग-अलग files contain कर सकता है।</td>
+</tr>
+</table>
+
+<h2>15. File Operations</h2>
+
+<p>
+Computer सीखते समय निम्न file operations को अच्छी तरह समझना जरूरी है।
+</p>
+
+<h3>Create</h3>
+<p>
+नई file या folder बनाना create कहलाता है।
+</p>
+
+<h3>Open</h3>
+<p>
+किसी existing file या application को खोलना open कहलाता है।
+</p>
+
+<h3>Save</h3>
+<p>
+नई या modified information को storage पर सुरक्षित करना save कहलाता है।
+</p>
+
+<h3>Rename</h3>
+<p>
+File या folder का नाम बदलना rename कहलाता है।
+</p>
+
+<h3>Copy</h3>
+<p>
+Original item को रखते हुए उसकी duplicate copy बनाना copy कहलाता है।
+</p>
+
+<h3>Move</h3>
+<p>
+File या folder को एक location से दूसरी location में स्थानांतरित करना move कहलाता है।
+</p>
+
+<h3>Delete</h3>
+<p>
+किसी file या folder को हटाना delete कहलाता है। कई operating systems में
+deleted files पहले Recycle Bin या Trash में जा सकती हैं।
+</p>
+
+<h2>16. Copy और Move में अंतर</h2>
+
+<table>
+<tr>
+<th>Copy</th>
+<th>Move</th>
+</tr>
+<tr>
+<td>Original item अपनी जगह रहता है।</td>
+<td>Item नई location पर चला जाता है।</td>
+</tr>
+<tr>
+<td>Duplicate बनाया जाता है।</td>
+<td>Location बदली जाती है।</td>
+</tr>
+<tr>
+<td>Backup या duplicate के लिए उपयोगी।</td>
+<td>Organization के लिए उपयोगी।</td>
+</tr>
+</table>
+
+<h2>17. Keyboard Shortcuts</h2>
+
+<p>
+Keyboard shortcuts computer पर काम को तेज और efficient बना सकते हैं।
+</p>
+
+<table>
+<tr>
+<th>Shortcut</th>
+<th>कार्य</th>
+</tr>
+<tr>
+<td>Ctrl + C</td>
+<td>Copy</td>
+</tr>
+<tr>
+<td>Ctrl + X</td>
+<td>Cut</td>
+</tr>
+<tr>
+<td>Ctrl + V</td>
+<td>Paste</td>
+</tr>
+<tr>
+<td>Ctrl + S</td>
+<td>Save</td>
+</tr>
+<tr>
+<td>Ctrl + A</td>
+<td>Select All</td>
+</tr>
+<tr>
+<td>Ctrl + Z</td>
+<td>Undo</td>
+</tr>
+<tr>
+<td>Ctrl + Y</td>
+<td>Redo</td>
+</tr>
+<tr>
+<td>Ctrl + F</td>
+<td>Find/Search</td>
+</tr>
+<tr>
+<td>Alt + Tab</td>
+<td>Applications के बीच switch</td>
+</tr>
+</table>
+
+<div class="tip">
+<strong>Practice Tip:</strong>
+Shortcuts को केवल याद न करें। इन्हें रोज computer पर use करें। Practical
+use से shortcuts जल्दी याद होते हैं।
+</div>
+
+<h2>18. Application और Operating System में अंतर</h2>
+
+<p>
+Operating system computer के basic resources और overall environment को
+manage करता है, जबकि application software user के specific tasks के लिए
+बनाया जाता है।
+</p>
+
+<table>
+<tr>
+<th>Operating System</th>
+<th>Application Software</th>
+</tr>
+<tr>
+<td>System resources manage करता है।</td>
+<td>Specific user task करता है।</td>
+</tr>
+<tr>
+<td>Computer environment provide करता है।</td>
+<td>Document, calculation, browsing आदि में मदद करता है।</td>
+</tr>
+<tr>
+<td>उदाहरण: Windows, Linux</td>
+<td>उदाहरण: Browser, Word processor, Calculator</td>
+</tr>
+</table>
+
+<h2>19. Booting क्या है?</h2>
+
+<p>
+Computer को start करने और operating system को memory में load करने की
+प्रक्रिया को सामान्यतः booting कहा जाता है।
+</p>
+
+<p>
+जब computer power on होता है, system hardware initialization और startup
+procedures perform करता है। इसके बाद operating system load होकर user को
+working environment प्रदान करता है।
+</p>
+
+<h3>Cold Boot</h3>
+
+<p>
+जब computer पूरी तरह powered off स्थिति से start किया जाता है तो इसे
+सामान्यतः cold boot कहा जाता है।
+</p>
+
+<h3>Restart / Warm Boot</h3>
+
+<p>
+जब running system को restart करके operating system को दोबारा start किया
+जाता है, तो इसे restart या warm booting के context में समझा जा सकता है।
+</p>
+
+<h2>20. Shutdown क्यों जरूरी है?</h2>
+
+<p>
+Computer को केवल power button से अचानक बंद करना सामान्य परिस्थितियों में
+अच्छी practice नहीं है। Operating system के shutdown process से running
+applications close हो सकती हैं और system आवश्यक cleanup operations कर
+सकता है।
+</p>
+
+<div class="warning">
+<strong>महत्वपूर्ण:</strong>
+काम पूरा करने के बाद अपने files save करें और operating system के normal
+shutdown option का उपयोग करें। अचानक power loss से unsaved work खो सकता है।
+</div>
+
+<h2>21. User Accounts</h2>
+
+<p>
+एक computer में एक से अधिक users हो सकते हैं। Operating system अलग-अलग
+user accounts बनाने की सुविधा दे सकता है।
+</p>
+
+<p>
+अलग accounts से files, settings और permissions को अलग रखने में सहायता
+मिल सकती है। Shared computer में personal information को सुरक्षित रखने
+के लिए appropriate account security महत्वपूर्ण है।
+</p>
+
+<h2>22. Administrator और Standard User</h2>
+
+<p>
+कई operating systems में administrator और standard user जैसे अलग permission
+levels हो सकते हैं।
+</p>
+
+<p>
+Administrator को system-level settings और software installation जैसे
+अधिक permissions मिल सकती हैं। Standard user के permissions comparatively
+limited हो सकते हैं।
+</p>
+
+<div class="warning">
+Administrator access का उपयोग सावधानी से करें। Unknown programs को
+administrator permission देना security risk पैदा कर सकता है।
+</div>
+
+<h2>23. Password और Security</h2>
+
+<p>
+Computer account की security के लिए strong password या passphrase उपयोग
+करना महत्वपूर्ण है। Password ऐसा होना चाहिए जिसे दूसरे लोग आसानी से guess
+न कर सकें।
+</p>
+
+<ul>
+<li>बहुत simple password से बचें।</li>
+<li>अलग-अलग महत्वपूर्ण accounts में unique passwords रखें।</li>
+<li>Password किसी दूसरे व्यक्ति से share न करें।</li>
+<li>जहाँ उपलब्ध हो multi-factor authentication का उपयोग करें।</li>
+<li>Unknown links और attachments से सावधान रहें।</li>
+</ul>
+
+<h2>24. Software Installation</h2>
+
+<p>
+Computer पर नया application install करते समय software को trusted source
+से प्राप्त करना चाहिए। Installation के दौरान permissions और additional
+software options को ध्यान से पढ़ना चाहिए।
+</p>
+
+<p>
+केवल "Next, Next, Next" करते हुए हर option accept करना अच्छी practice
+नहीं है। Installation screen पर unwanted bundled software या unnecessary
+settings दिखाई दे सकती हैं।
+</p>
+
+<h2>25. Software Update क्यों जरूरी है?</h2>
+
+<p>
+Operating system और applications के updates में नई features, bug fixes,
+compatibility improvements और security fixes शामिल हो सकते हैं।
+इसलिए supported software को नियमित रूप से update रखना सामान्यतः अच्छी
+security practice है।
+</p>
+
+<div class="tip">
+<strong>याद रखें:</strong>
+Update का मतलब केवल नया feature प्राप्त करना नहीं है। Security और
+stability improvements भी updates का महत्वपूर्ण हिस्सा हो सकते हैं।
+</div>
+
+<h2>26. Backup क्या है?</h2>
+
+<p>
+Important files की अतिरिक्त copy बनाकर सुरक्षित location पर रखना backup
+कहलाता है। यदि original file accidentally delete हो जाए, storage fail हो
+जाए या किसी अन्य समस्या के कारण data unavailable हो जाए, तो backup बहुत
+उपयोगी हो सकता है।
+</p>
+
+<h3>Backup के उदाहरण</h3>
+
+<ul>
+<li>External storage</li>
+<li>USB drive</li>
+<li>External hard drive</li>
+<li>Cloud storage</li>
+<li>Network storage</li>
+</ul>
+
+<h2>27. Recycle Bin / Trash</h2>
+
+<p>
+कई desktop operating systems deleted files को temporary रूप से Recycle Bin
+या Trash में रखते हैं। वहाँ से user कुछ files को restore या permanently
+delete कर सकता है।
+</p>
+
+<p>
+लेकिन इसे backup का replacement नहीं समझना चाहिए। Recycle Bin केवल
+certain deletion scenarios में मदद करता है।
+</p>
+
+<h2>28. Basic Troubleshooting</h2>
+
+<p>
+जब computer में कोई समस्या आती है तो घबराने के बजाय समस्या को logically
+check करना चाहिए।
+</p>
+
+<h3>यदि application respond नहीं कर रही है</h3>
+
+<ul>
+<li>कुछ seconds wait करें।</li>
+<li>देखें कि system completely frozen है या केवल application slow है।</li>
+<li>अन्य applications respond कर रही हैं या नहीं, check करें।</li>
+<li>जरूरत पड़ने पर application को safely close करें।</li>
+<li>Application दोबारा start करें।</li>
+</ul>
+
+<h3>यदि internet काम नहीं कर रहा</h3>
+
+<ul>
+<li>Wi-Fi या network connection check करें।</li>
+<li>दूसरी website/application से connection test करें।</li>
+<li>Router/network device की स्थिति check करें।</li>
+<li>Network settings देखें।</li>
+</ul>
+
+<h3>यदि file नहीं मिल रही</h3>
+
+<ul>
+<li>File name search करें।</li>
+<li>Recent files देखें।</li>
+<li>सही folder/location check करें।</li>
+<li>Recycle Bin/Trash check करें यदि file delete हुई हो सकती है।</li>
+</ul>
+
+<h2>29. Task Manager का Basic Concept</h2>
+
+<p>
+कुछ operating systems में Task Manager या similar system monitoring tool
+running applications और processes को देखने में मदद करता है।
+</p>
+
+<p>
+Windows में Task Manager CPU, memory, disk और network usage जैसी जानकारी
+दिखा सकता है। Beginner को इसे केवल समझने और monitoring के लिए use करना
+चाहिए; unknown processes को बिना समझे terminate नहीं करना चाहिए।
+</p>
+
+<h2>30. System Performance</h2>
+
+<p>
+Computer performance कई factors पर निर्भर करती है। CPU performance, RAM
+capacity, storage technology, running applications, background processes,
+software configuration और thermal conditions जैसे factors system behavior
+को प्रभावित कर सकते हैं।
+</p>
+
+<p>
+यदि computer slow हो रहा है तो केवल एक कारण मान लेना सही नहीं है। पहले
+समस्या observe करें, फिर resource usage और available storage जैसी basic
+चीजें check करें।
+</p>
+
+<h2>31. Storage Space Management</h2>
+
+<p>
+Storage में बहुत कम free space बचने पर कुछ systems में performance और
+updates से संबंधित समस्याएँ आ सकती हैं। इसलिए unnecessary files और
+applications को review करना उपयोगी हो सकता है।
+</p>
+
+<p>
+Important files delete करने से पहले हमेशा verify करें कि वे वास्तव में
+unnecessary हैं और यदि आवश्यक हो तो उनका backup मौजूद है।
+</p>
+
+<h2>32. Practical Exercise 1 — Folder Management</h2>
+
+<ol>
+<li>Desktop पर एक folder बनाइए।</li>
+<li>उसका नाम <strong>Computer Practice</strong> रखें।</li>
+<li>इसके अंदर <strong>Documents</strong> नाम का folder बनाइए।</li>
+<li>इसके अंदर <strong>Images</strong> नाम का folder बनाइए।</li>
+<li>एक text file बनाइए।</li>
+<li>File का नाम <strong>My Notes.txt</strong> रखें।</li>
+<li>File को Documents folder में move करें।</li>
+<li>File की एक copy बनाकर दूसरी location में रखें।</li>
+</ol>
+
+<h2>33. Practical Exercise 2 — Keyboard Shortcuts</h2>
+
+<ol>
+<li>एक text editor खोलें।</li>
+<li>अपना नाम type करें।</li>
+<li>कुछ lines लिखें।</li>
+<li>Ctrl + A से text select करें।</li>
+<li>Ctrl + C से copy करें।</li>
+<li>नई line पर Ctrl + V से paste करें।</li>
+<li>Ctrl + S से file save करें।</li>
+<li>Ctrl + Z से किसी action को undo करें।</li>
+</ol>
+
+<h2>34. Practical Exercise 3 — File Organization</h2>
+
+<p>
+एक folder structure बनाइए:
+</p>
+
+<div class="example">
+<strong>My Computer Course</strong><br>
+→ Lesson 1<br>
+→ Lesson 2<br>
+→ Lesson 3<br>
+→ Lesson 4<br>
+→ Practice<br>
+→ Backup
+</div>
+
+<p>
+अब प्रत्येक folder में कम से कम एक practice file रखें। इससे आपको
+folder hierarchy और file organization समझने में मदद मिलेगी।
+</p>
+
+<h2>35. Practical Exercise 4 — System Information</h2>
+
+<p>
+अपने computer में system information या settings area खोलें और निम्न
+जानकारी identify करने का प्रयास करें:
+</p>
+
+<ul>
+<li>Operating system का नाम</li>
+<li>System architecture यदि दिखाई दे</li>
+<li>Installed RAM</li>
+<li>Processor का नाम</li>
+<li>Storage information</li>
+</ul>
+
+<div class="warning">
+अपने system की information किसी unknown व्यक्ति या website पर share करने
+से पहले privacy और security implications समझें।
+</div>
+
+<h2>36. Common Mistakes / सामान्य गलतियाँ</h2>
+
+<ul>
+<li>Files को बिना location check किए save करना।</li>
+<li>Important files का backup न रखना।</li>
+<li>Unknown software install करना।</li>
+<li>हर popup पर बिना पढ़े click करना।</li>
+<li>Administrator permission हर program को देना।</li>
+<li>Simple या reused passwords रखना।</li>
+<li>Computer को बार-बार अचानक power off करना।</li>
+<li>File delete करने से पहले verify न करना।</li>
+<li>Important system settings को बिना समझे बदलना।</li>
+<li>Security updates को लंबे समय तक ignore करना।</li>
+</ul>
+
+<h2>37. Troubleshooting Rule</h2>
+
+<p>
+Computer problem solve करने के लिए एक simple rule अपनाएँ:
+</p>
+
+<div class="example">
+<strong>Observe → Identify → Check → Change → Test</strong>
+</div>
+
+<p>
+पहले समस्या को observe करें। फिर संभावित कारण identify करें। एक-एक
+setting या component check करें। आवश्यक change करें और फिर result test करें।
+एक साथ बहुत सारे changes करने से वास्तविक problem का कारण पहचानना कठिन
+हो सकता है।
+</p>
+
+<h2>38. Important Terms</h2>
+
+<table>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td>Operating System</td>
+<td>Computer resources और user environment manage करने वाला system software</td>
+</tr>
+<tr>
+<td>GUI</td>
+<td>Graphical User Interface</td>
+</tr>
+<tr>
+<td>File</td>
+<td>Digital information का organized unit</td>
+</tr>
+<tr>
+<td>Folder</td>
+<td>Files और folders को organize करने वाला container</td>
+</tr>
+<tr>
+<td>Booting</td>
+<td>Computer start करके operating system load करने की प्रक्रिया</td>
+</tr>
+<tr>
+<td>Backup</td>
+<td>Data की अतिरिक्त सुरक्षित copy</td>
+</tr>
+<tr>
+<td>Process</td>
+<td>Running program या task का execution</td>
+</tr>
+<tr>
+<td>Permission</td>
+<td>किसी resource को access करने का अधिकार</td>
+</tr>
+</table>
+
+<h2>39. Quick Revision / त्वरित पुनरावृत्ति</h2>
+
+<ul>
+<li>Operating System एक महत्वपूर्ण system software है।</li>
+<li>OS user और hardware के बीच interface प्रदान करता है।</li>
+<li>Windows, Linux और macOS operating systems के उदाहरण हैं।</li>
+<li>Android mobile operating system का उदाहरण है।</li>
+<li>OS process और memory management में सहायता करता है।</li>
+<li>OS files और folders manage करने की सुविधा देता है।</li>
+<li>GUI computer को user-friendly बनाता है।</li>
+<li>File digital information का organized unit है।</li>
+<li>Folder files को organize करने में सहायता करता है।</li>
+<li>Backup important data को सुरक्षित रखने में मदद करता है।</li>
+<li>Strong passwords और software updates security के लिए महत्वपूर्ण हैं।</li>
+</ul>
+
+<h2>40. Practice Questions / अभ्यास प्रश्न</h2>
+
+<ol>
+<li>Operating System क्या है?</li>
+<li>Operating System के पाँच प्रमुख कार्य लिखिए।</li>
+<li>GUI का पूरा नाम क्या है?</li>
+<li>GUI के चार examples लिखिए।</li>
+<li>File और folder में क्या अंतर है?</li>
+<li>File extension क्या है?</li>
+<li>Booting क्या है?</li>
+<li>Shutdown क्यों किया जाता है?</li>
+<li>Copy और Move में अंतर बताइए।</li>
+<li>Backup क्या है?</li>
+<li>Administrator account क्या होता है?</li>
+<li>Strong password क्यों जरूरी है?</li>
+<li>Software update क्यों किया जाता है?</li>
+<li>Task Manager का basic purpose क्या है?</li>
+<li>Computer slow होने पर आप कौन-कौन सी basic चीजें check करेंगे?</li>
+</ol>
+
+<h2>41. Viva Questions / मौखिक प्रश्न</h2>
+
+<ol>
+<li>OS का full form क्या है?</li>
+<li>क्या Windows एक operating system है?</li>
+<li>क्या keyboard hardware है?</li>
+<li>क्या MS Word operating system है?</li>
+<li>Folder का क्या उपयोग है?</li>
+<li>Ctrl + C का क्या उपयोग है?</li>
+<li>Ctrl + V का क्या उपयोग है?</li>
+<li>Ctrl + S का क्या उपयोग है?</li>
+<li>Backup क्यों बनाया जाता है?</li>
+<li>Computer को safely shutdown क्यों करना चाहिए?</li>
+</ol>
+
+<h2>42. Lesson 4 Final Summary</h2>
+
+<p>
+इस lesson में हमने Operating System को detail में समझा। हमने जाना कि
+operating system computer के hardware resources और applications को manage
+करने में महत्वपूर्ण भूमिका निभाता है। हमने GUI, desktop, icons, taskbar,
+files, folders, file extensions, file operations, booting, shutdown,
+user accounts, permissions, security, backup और troubleshooting जैसे
+important concepts को समझा।
+</p>
+
+<p>
+एक beginner के लिए सबसे महत्वपूर्ण बात यह है कि केवल definitions याद न
+की जाएँ। Computer पर स्वयं practical करके concepts को समझना चाहिए।
+एक folder बनाइए, files create कीजिए, उन्हें rename, copy और move कीजिए,
+keyboard shortcuts use कीजिए और अपने operating system की basic settings
+को पहचानिए।
+</p>
+
+<div class="note">
+<strong>Final Practice Rule:</strong><br>
+Theory पढ़ें → Computer पर करके देखें → छोटा example बनाएं →
+जानबूझकर एक simple problem समझें → उसे logically solve करें →
+फिर बिना notes देखे वही task दोबारा करें।
+</div>
+
+<h2>43. Lesson 4 Completion Checklist</h2>
+
+<ul>
+<li>☐ Operating System की definition समझी</li>
+<li>☐ OS के मुख्य functions समझे</li>
+<li>☐ GUI समझा</li>
+<li>☐ Desktop और icons समझे</li>
+<li>☐ Files और folders बनाए</li>
+<li>☐ Copy, Move, Rename और Delete practice किया</li>
+<li>☐ Keyboard shortcuts practice किए</li>
+<li>☐ Booting और shutdown समझा</li>
+<li>☐ User accounts और permissions समझे</li>
+<li>☐ Backup का महत्व समझा</li>
+<li>☐ Basic troubleshooting practice की</li>
+</ul>
+
+</div>
+
+</body>
+</html>

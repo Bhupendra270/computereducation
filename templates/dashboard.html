@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Computer Education</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="dashboard-nav">
+
+    <div class="brand">
+        💻 Computer Education
+    </div>
+
+    <div class="nav-right">
+        <span>👋 Hello, {{ name }}</span>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+</nav>
+
+
+<main class="dashboard-container">
+
+    <section class="welcome-card">
+
+        <div>
+            <p class="small-text">Student Dashboard</p>
+
+            <h1>
+                Welcome back, {{ name }}! 👋
+            </h1>
+
+            <p>
+                Continue your computer learning journey
+                and improve your skills.
+            </p>
+        </div>
+
+        <div class="welcome-icon">
+            🎓
+        </div>
+
+    </section>
+
+
+    <section class="stats-grid">
+
+        <div class="stat-card blue">
+
+            <div class="stat-icon">👨‍🎓</div>
+
+            <div>
+                <h3>{{ total_users }}</h3>
+                <p>Registered Students</p>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card green">
+
+            <div class="stat-icon">📚</div>
+
+            <div>
+                <h3>{{ total_courses }}</h3>
+                <p>Available Courses</p>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card purple">
+
+            <div class="stat-icon">📝</div>
+
+            <div>
+                <h3>{{ total_questions }}</h3>
+                <p>Quiz Questions</p>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card orange">
+
+            <div class="stat-icon">🏆</div>
+
+            <div>
+                <h3>{{ completed_quizzes }}</h3>
+                <p>Quizzes Completed</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section-heading">
+
+        <div>
+            <p class="small-text">Your Progress</p>
+            <h2>Quiz Performance</h2>
+        </div>
+
+    </section>
+
+    <section class="stats-grid">
+
+        <div class="stat-card blue">
+            <div class="stat-icon">📈</div>
+            <div>
+                <h3>{{ average_score }}%</h3>
+                <p>Average Score</p>
+            </div>
+        </div>
+
+        <div class="stat-card green">
+            <div class="stat-icon">🏆</div>
+            <div>
+                <h3>{{ best_score|round(1) }}%</h3>
+                <p>Best Score</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="section-heading">
+
+        <div>
+            <p class="small-text">Your Learning Progress</p>
+            <h2>Course Progress 📊</h2>
+        </div>
+
+    </section>
+
+
+    <section class="progress-cards">
+
+        <div class="progress-card">
+
+            <div class="progress-card-top">
+                <div>
+                    <h3>💻 Computer Fundamentals</h3>
+                    <p>
+                        {{ lesson_progress.get(1, {}).get("completed", 0) }}
+                        /
+                        {{ lesson_progress.get(1, {}).get("total", 5) }}
+                        Lessons Completed
+                    </p>
+                </div>
+
+                <strong>
+                    {{ lesson_progress.get(1, {}).get("percentage", 0) }}%
+                </strong>
+            </div>
+
+            <div class="progress-bar">
+                <div
+                    class="progress-fill blue-progress"
+                    style="width: {{ lesson_progress.get(1, {}).get("percentage", 0) }}%;">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="progress-card">
+
+            <div class="progress-card-top">
+                <div>
+                    <h3>📊 MS Office</h3>
+                    <p>
+                        {{ lesson_progress.get(2, {}).get("completed", 0) }}
+                        /
+                        {{ lesson_progress.get(2, {}).get("total", 5) }}
+                        Lessons Completed
+                    </p>
+                </div>
+
+                <strong>
+                    {{ lesson_progress.get(2, {}).get("percentage", 0) }}%
+                </strong>
+            </div>
+
+            <div class="progress-bar">
+                <div
+                    class="progress-fill green-progress"
+                    style="width: {{ lesson_progress.get(2, {}).get("percentage", 0) }}%;">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="progress-card">
+
+            <div class="progress-card-top">
+                <div>
+                    <h3>🐍 Python Programming</h3>
+                    <p>
+                        {{ lesson_progress.get(3, {}).get("completed", 0) }}
+                        /
+                        {{ lesson_progress.get(3, {}).get("total", 5) }}
+                        Lessons Completed
+                    </p>
+                </div>
+
+                <strong>
+                    {{ lesson_progress.get(3, {}).get("percentage", 0) }}%
+                </strong>
+            </div>
+
+            <div class="progress-bar">
+                <div
+                    class="progress-fill purple-progress"
+                    style="width: {{ lesson_progress.get(3, {}).get("percentage", 0) }}%;">
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="progress-card">
+
+            <div class="progress-card-top">
+                <div>
+                    <h3>🌐 Web Development</h3>
+                    <p>
+                        {{ lesson_progress.get(4, {}).get("completed", 0) }}
+                        /
+                        {{ lesson_progress.get(4, {}).get("total", 5) }}
+                        Lessons Completed
+                    </p>
+                </div>
+
+                <strong>
+                    {{ lesson_progress.get(4, {}).get("percentage", 0) }}%
+                </strong>
+            </div>
+
+            <div class="progress-bar">
+                <div
+                    class="progress-fill orange-progress"
+                    style="width: {{ lesson_progress.get(4, {}).get("percentage", 0) }}%;">
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section-heading">
+
+        <div>
+            <p class="small-text">Learning</p>
+            <h2>Start Learning</h2>
+        </div>
+
+        <a href="{{ url_for('courses') }}" class="view-all">
+            View All →
+        </a>
+
+    </section>
+
+
+    <section class="course-preview-grid">
+
+        <div class="course-preview">
+
+            <div class="course-icon blue-icon">
+                💻
+            </div>
+
+            <h3>Computer Fundamentals</h3>
+
+            <p>
+                Learn computer basics, hardware,
+                software and internet.
+            </p>
+
+            <a href="{{ url_for('courses') }}">
+                Start Course →
+            </a>
+
+        </div>
+
+
+        <div class="course-preview">
+
+            <div class="course-icon green-icon">
+                📊
+            </div>
+
+            <h3>MS Office</h3>
+
+            <p>
+                Learn Word, Excel, PowerPoint
+                and office productivity.
+            </p>
+
+            <a href="{{ url_for('courses') }}">
+                Start Course →
+            </a>
+
+        </div>
+
+
+        <div class="course-preview">
+
+            <div class="course-icon purple-icon">
+                🐍
+            </div>
+
+            <h3>Python Programming</h3>
+
+            <p>
+                Learn Python programming
+                from beginner to advanced.
+            </p>
+
+            <a href="{{ url_for('courses') }}">
+                Start Course →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section class="quick-section">
+
+        <h2>Recent Quiz Attempts</h2>
+
+        {% if recent_quizzes %}
+
+        <div class="quiz-history">
+
+            {% for quiz in recent_quizzes %}
+
+            <div class="quiz-history-item">
+
+                <div>
+                    <strong>
+                        {{ quiz.course_title or "Quiz" }}
+                    </strong>
+
+                    <small>
+                        {{ quiz.created_at }}
+                    </small>
+                </div>
+
+                <div class="quiz-score">
+                    {{ quiz.score }} / {{ quiz.total }}
+
+                    {% if quiz.total > 0 %}
+                    <span>
+                        {{ ((quiz.score / quiz.total) * 100)|round(0) }}%
+                    </span>
+                    {% endif %}
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <p>No quiz attempts yet.</p>
+
+        {% endif %}
+
+    </section>
+
+    <section class="quick-section">
+
+        <h2>Quick Actions</h2>
+
+        <div class="quick-grid">
+
+            <a href="{{ url_for('courses') }}" class="quick-card">
+                📚
+                <span>Browse Courses</span>
+            </a>
+
+            <a href="{{ url_for('courses') }}" class="quick-card">
+                📝
+                <span>Take a Quiz</span>
+            </a>
+
+            <a href="{{ url_for('index') }}" class="quick-card">
+                🏠
+                <span>Home</span>
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+    © 2026 Computer Education. All Rights Reserved.
+</footer>
+
+<style>
+.site-footer {
+    text-align: center;
+    padding: 18px 15px;
+    margin-top: 40px;
+    background: rgba(15, 23, 42, 0.92);
+    color: #e2e8f0;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+</style>
+</body>
+</html>
+
+
+
+
+
+

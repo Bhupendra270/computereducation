@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ course.title }} Quiz | Computer Education</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f3f6fb;
+    color:#222;
+}
+
+.container{
+    max-width:850px;
+    margin:40px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 30px #0002;
+}
+
+h1{
+    color:#174ea6;
+    margin-top:0;
+}
+
+.info{
+    display:flex;
+    justify-content:space-between;
+    background:#eef5ff;
+    padding:14px;
+    border-radius:10px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.progress{
+    height:12px;
+    background:#ddd;
+    border-radius:20px;
+    overflow:hidden;
+    margin:15px 0 30px;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:#1769e0;
+    transition:.3s;
+}
+
+.question{
+    font-size:22px;
+    font-weight:bold;
+    line-height:1.5;
+    margin-bottom:25px;
+}
+
+.option{
+    display:block;
+    border:2px solid #ddd;
+    padding:16px;
+    margin:12px 0;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.option:hover{
+    border-color:#1769e0;
+    background:#f5f9ff;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+button{
+    border:0;
+    padding:14px 25px;
+    border-radius:9px;
+    background:#1769e0;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:18px;
+}
+
+button:hover{
+    background:#0d4fae;
+}
+
+#nextBtn{
+    display:none;
+}
+
+.feedback{
+    margin-top:18px;
+    font-weight:bold;
+    min-height:24px;
+}
+
+#result{
+    display:none;
+    text-align:center;
+    padding:30px;
+}
+
+.score{
+    font-size:30px;
+    color:#1769e0;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📝 {{ course.title }} Quiz</h1>
+
+<div class="info">
+    <span>Question <span id="number">1</span></span>
+    <span>Total <span id="total"></span></span>
+</div>
+
+<div class="progress">
+    <div class="progress-bar" id="bar"></div>
+</div>
+
+<div id="quizBox">
+
+    <div class="question" id="question"></div>
+
+    <div id="options"></div>
+
+    <div class="feedback" id="feedback"></div>
+
+    <button id="submitBtn" onclick="submitAnswer()">
+        Submit Answer
+    </button>
+
+    <button id="nextBtn" onclick="nextQuestion()">
+        Next Question →
+    </button>
+
+</div>
+
+<div id="result">
+
+    <h2>🎉 Quiz Completed</h2>
+
+    <p class="score" id="score"></p>
+
+    <p>You have completed all questions.</p>
+
+    <a href="/result/{{ course_id }}">
+        <button>View Result</button>
+    </a>
+
+</div>
+
+</div>
+
+<script>
+
+const allQuestions = {{ questions|tojson }};
+
+let questions = allQuestions;
+let current = 0;
+let score = 0;
+let submitted = false;
+
+document.getElementById("total").textContent = questions.length;
+
+function showQuestion(){
+
+    if(current >= questions.length){
+        finishQuiz();
+        return;
+    }
+
+    submitted = false;
+
+    const q = questions[current];
+
+    document.getElementById("number").textContent = current + 1;
+
+    document.getElementById("question").textContent = q.question;
+
+    document.getElementById("bar").style.width =
+        ((current + 1) / questions.length * 100) + "%";
+
+    document.getElementById("feedback").textContent = "";
+
+    const options = document.getElementById("options");
+
+    options.innerHTML = "";
+
+    q.options.forEach((option,index)=>{
+
+        const label = document.createElement("label");
+
+        label.className = "option";
+
+        label.innerHTML =
+            '<input type="radio" name="answer" value="' +
+            index +
+            '">' +
+            option;
+
+        options.appendChild(label);
+
+    });
+
+    document.getElementById("submitBtn").style.display = "inline-block";
+
+    document.getElementById("nextBtn").style.display = "none";
+}
+
+
+function submitAnswer(){
+
+    if(submitted){
+        return;
+    }
+
+    const selected =
+        document.querySelector('input[name="answer"]:checked');
+
+    if(!selected){
+
+        alert("Please select an answer first.");
+
+        return;
+    }
+
+    const q = questions[current];
+
+    const selectedAnswer =
+        q.options[Number(selected.value)];
+
+    submitted = true;
+
+    document.querySelectorAll('input[name="answer"]')
+        .forEach(input => input.disabled = true);
+
+    if(selectedAnswer === q.answer){
+
+        score++;
+
+        document.getElementById("feedback").textContent =
+            "✅ Correct Answer!";
+
+        document.getElementById("feedback").style.color =
+            "green";
+
+    }else{
+
+        document.getElementById("feedback").textContent =
+            "❌ Wrong Answer. Correct answer: " + q.answer;
+
+        document.getElementById("feedback").style.color =
+            "red";
+    }
+
+    document.getElementById("submitBtn").style.display = "none";
+
+    document.getElementById("nextBtn").style.display = "inline-block";
+}
+
+
+function nextQuestion(){
+
+    current++;
+
+    showQuestion();
+}
+
+
+function finishQuiz(){
+
+    document.getElementById("quizBox").style.display = "none";
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("score").textContent =
+        score + " / " + questions.length;
+}
+
+
+showQuestion();
+
+</script>
+
+</body>
+</html>

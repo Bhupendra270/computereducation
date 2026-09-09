@@ -1,0 +1,26 @@
+﻿venv/
+.venv/
+__pycache__/
+*.pyc
+*.db
+*.pptx
+*.backup
+*.bak
+*.json
+FINAL_BACKUP_2026-08-20/
+app_*.py
+*_backup.py
+*_backup_*.py
+
+*.backup*
+*_backup*
+*_before_*
+
+# Backup files
+*.backup*
+*_backup.*
+*before_*.html
+
+computer_education.db
+computer_education.db
+computer_education_backup.db
