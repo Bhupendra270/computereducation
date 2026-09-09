@@ -1,4 +1,4 @@
-﻿import os
+import os
 import sqlite3
 from werkzeug.security import generate_password_hash
 
@@ -6,7 +6,7 @@ DATABASE = "computer_education.db"
 
 
 # =========================================================
-# DATABASE CONNECTION
+# POSTGRES CURSOR
 # =========================================================
 
 class PostgresCursor:
@@ -18,13 +18,18 @@ class PostgresCursor:
 
     def execute(self, query, params=None):
         query = self._convert_query(query)
+
         if params is None:
-            return self.cursor.execute(query)
-        return self.cursor.execute(query, params)
+            self.cursor.execute(query)
+        else:
+            self.cursor.execute(query, params)
+
+        return self
 
     def executemany(self, query, params):
         query = self._convert_query(query)
-        return self.cursor.executemany(query, params)
+        self.cursor.executemany(query, params)
+        return self
 
     def fetchone(self):
         return self.cursor.fetchone()
@@ -39,6 +44,10 @@ class PostgresCursor:
     def rowcount(self):
         return self.cursor.rowcount
 
+
+# =========================================================
+# POSTGRES DATABASE
+# =========================================================
 
 class PostgresDB:
     def __init__(self, connection):
@@ -64,11 +73,20 @@ class PostgresDB:
         self.connection.close()
 
 
+# =========================================================
+# DATABASE CONNECTION
+# =========================================================
+
 def get_db():
+
     database_url = os.getenv("DATABASE_URL")
 
-    # Render / PostgreSQL
+    # =====================================================
+    # RENDER / POSTGRESQL
+    # =====================================================
+
     if database_url:
+
         import psycopg2
         from psycopg2.extras import RealDictCursor
 
@@ -79,9 +97,13 @@ def get_db():
 
         return PostgresDB(connection)
 
-    # Local / SQLite
+    # =====================================================
+    # LOCAL / SQLITE
+    # =====================================================
+
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
+
     return conn
 
 
@@ -90,6 +112,7 @@ def get_db():
 # =========================================================
 
 def init_db():
+
     database_url = os.getenv("DATABASE_URL")
 
     conn = get_db()
@@ -160,7 +183,7 @@ def init_db():
                 lesson_number INTEGER NOT NULL,
                 completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 UNIQUE(user_id, course_id, lesson_number),
-                FOREIGN KEY (user_id) REFERENCES users(id)
+                FOREIGN KEY(user_id) REFERENCES users(id)
             )
         """)
 
@@ -172,7 +195,7 @@ def init_db():
                 certificate_code TEXT UNIQUE NOT NULL,
                 issued_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 UNIQUE(user_id, course_id),
-                FOREIGN KEY (user_id) REFERENCES users(id)
+                FOREIGN KEY(user_id) REFERENCES users(id)
             )
         """)
 
@@ -257,9 +280,9 @@ def init_db():
             )
         """)
 
-    # =========================================================
+    # =====================================================
     # DEFAULT ADMIN
-    # =========================================================
+    # =====================================================
 
     admin = cursor.execute(
         "SELECT id FROM users WHERE email = ?",
@@ -267,6 +290,7 @@ def init_db():
     ).fetchone()
 
     if not admin:
+
         cursor.execute("""
             INSERT INTO users
             (name, email, password, role)
@@ -278,9 +302,9 @@ def init_db():
             "admin"
         ))
 
-    # =========================================================
+    # =====================================================
     # DEFAULT COURSES
-    # =========================================================
+    # =====================================================
 
     course_count = cursor.execute(
         "SELECT COUNT(*) AS count FROM courses"
@@ -344,20 +368,47 @@ def initialize_database():
 # =========================================================
 
 def init_progress_table():
+
+    database_url = os.getenv("DATABASE_URL")
+
     conn = get_db()
     cursor = conn.cursor()
 
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS lesson_progress (
-            id SERIAL PRIMARY KEY,
-            user_id INTEGER NOT NULL,
-            course_id INTEGER NOT NULL,
-            lesson_number INTEGER NOT NULL,
-            completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            UNIQUE(user_id, course_id, lesson_number),
-            FOREIGN KEY(user_id) REFERENCES users(id)
-        )
-    """)
+    # =====================================================
+    # POSTGRESQL
+    # =====================================================
+
+    if database_url:
+
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS lesson_progress (
+                id SERIAL PRIMARY KEY,
+                user_id INTEGER NOT NULL,
+                course_id INTEGER NOT NULL,
+                lesson_number INTEGER NOT NULL,
+                completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(user_id, course_id, lesson_number),
+                FOREIGN KEY(user_id) REFERENCES users(id)
+            )
+        """)
+
+    # =====================================================
+    # SQLITE
+    # =====================================================
+
+    else:
+
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS lesson_progress (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                course_id INTEGER NOT NULL,
+                lesson_number INTEGER NOT NULL,
+                completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(user_id, course_id, lesson_number),
+                FOREIGN KEY(user_id) REFERENCES users(id)
+            )
+        """)
 
     conn.commit()
     conn.close()
@@ -368,5 +419,7 @@ def init_progress_table():
 # =========================================================
 
 if __name__ == "__main__":
+
     initialize_database()
+
     print("Database initialized successfully!")
