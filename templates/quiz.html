@@ -243,15 +243,16 @@ function submitAnswer(){
 
     const q = questions[current];
 
-    const selectedAnswer =
-        q.options[Number(selected.value)];
+    const selectedIndex = Number(selected.value);
+    const selectedAnswer = q.options[selectedIndex];
+    const selectedLetter = String.fromCharCode(65 + selectedIndex);
 
     submitted = true;
 
     document.querySelectorAll('input[name="answer"]')
         .forEach(input => input.disabled = true);
 
-    if(selectedAnswer === q.answer){
+    if(selectedLetter === q.answer){
 
         score++;
 
@@ -264,7 +265,9 @@ function submitAnswer(){
     }else{
 
         document.getElementById("feedback").textContent =
-            "❌ Wrong Answer. Correct answer: " + q.answer;
+            "❌ Wrong Answer. Correct answer: " +
+            q.answer + " - " +
+            q.options[q.answer.charCodeAt(0) - 65];
 
         document.getElementById("feedback").style.color =
             "red";
@@ -301,3 +304,4 @@ showQuestion();
 
 </body>
 </html>
+
