@@ -14,7 +14,9 @@ def init_db():
     conn = get_db()
     cursor = conn.cursor()
 
-    # Users
+    # =========================================================
+    # USERS
+    # =========================================================
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -26,7 +28,9 @@ def init_db():
         )
     """)
 
-    # Courses
+    # =========================================================
+    # COURSES
+    # =========================================================
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS courses (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -37,7 +41,9 @@ def init_db():
         )
     """)
 
-    # Quiz results
+    # =========================================================
+    # QUIZ RESULTS
+    # =========================================================
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS quiz_results (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -51,7 +57,59 @@ def init_db():
         )
     """)
 
-    # Default admin
+    # =========================================================
+    # ONLINE QUIZ QUESTIONS
+    # =========================================================
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS online_questions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            subject TEXT,
+            question TEXT NOT NULL,
+            option_a TEXT NOT NULL,
+            option_b TEXT NOT NULL,
+            option_c TEXT NOT NULL,
+            option_d TEXT NOT NULL,
+            correct_answer TEXT NOT NULL,
+            difficulty TEXT DEFAULT 'Easy',
+            source TEXT,
+            category TEXT,
+            course_id INTEGER
+        )
+    """)
+
+    # =========================================================
+    # LESSON PROGRESS
+    # =========================================================
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS lesson_progress (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            course_id INTEGER NOT NULL,
+            lesson_number INTEGER NOT NULL,
+            completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE(user_id, course_id, lesson_number),
+            FOREIGN KEY(user_id) REFERENCES users(id)
+        )
+    """)
+
+    # =========================================================
+    # CERTIFICATES
+    # =========================================================
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS certificates (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            course_id INTEGER NOT NULL,
+            certificate_code TEXT UNIQUE NOT NULL,
+            issued_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE(user_id, course_id),
+            FOREIGN KEY(user_id) REFERENCES users(id)
+        )
+    """)
+
+    # =========================================================
+    # DEFAULT ADMIN
+    # =========================================================
     admin = cursor.execute(
         "SELECT id FROM users WHERE email = ?",
         ("admin@example.com",)
@@ -68,7 +126,9 @@ def init_db():
             "admin"
         ))
 
-    # Default courses
+    # =========================================================
+    # DEFAULT COURSES
+    # =========================================================
     course_count = cursor.execute(
         "SELECT COUNT(*) AS count FROM courses"
     ).fetchone()["count"]
@@ -115,15 +175,28 @@ def init_db():
 
     conn.commit()
     conn.close()
+
+
 # =========================================================
-# LESSON PROGRESS
+# INITIALIZE ALL DATABASE TABLES
 # =========================================================
 
+def initialize_database():
+    init_db()
+
+
+# =========================================================
+# RUN DIRECTLY
+# =========================================================
+
+if __name__ == "__main__":
+    initialize_database()
+    print("Database initialized successfully!")
 def init_progress_table():
-
     conn = get_db()
+    cursor = conn.cursor()
 
-    conn.execute("""
+    cursor.execute("""
         CREATE TABLE IF NOT EXISTS lesson_progress (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER NOT NULL,
@@ -131,30 +204,6 @@ def init_progress_table():
             lesson_number INTEGER NOT NULL,
             completed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             UNIQUE(user_id, course_id, lesson_number),
-            FOREIGN KEY(user_id) REFERENCES users(id)
-        )
-    """)
-
-    conn.commit()
-    conn.close()
-
-
-# =========================================================
-# CERTIFICATES
-# =========================================================
-
-def init_certificate_table():
-
-    conn = get_db()
-
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS certificates (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER NOT NULL,
-            course_id INTEGER NOT NULL,
-            certificate_code TEXT UNIQUE NOT NULL,
-            issued_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            UNIQUE(user_id, course_id),
             FOREIGN KEY(user_id) REFERENCES users(id)
         )
     """)

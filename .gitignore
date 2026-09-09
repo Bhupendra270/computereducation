@@ -1,8 +1,7 @@
-﻿venv/
+venv/
 .venv/
 __pycache__/
 *.pyc
-*.db
 *.pptx
 *.backup
 *.bak
@@ -21,6 +20,3 @@ app_*.py
 *_backup.*
 *before_*.html
 
-computer_education.db
-computer_education.db
-computer_education_backup.db
